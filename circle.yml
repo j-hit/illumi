@@ -1,3 +1,6 @@
 machine:
   xcode:
     version: "7.0"
+dependencies:
+  pre:
+    - brew uninstall xctool && brew install --HEAD xctool

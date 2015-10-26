@@ -46,6 +46,7 @@ class RequiredSettingsViewController: UIViewController {
             locationSwitch.on = true
             locationSwitch.enabled = false
             setLocationInfoLabel("")
+            doneButton.enabled = true
         case .Denied:
             locationSwitch.on = false
             locationSwitch.enabled = false
@@ -91,12 +92,16 @@ class RequiredSettingsViewController: UIViewController {
 }
 
 extension RequiredSettingsViewController: CLLocationManagerDelegate{
+    // MARK: CLLocationManagerDelegate
+    
     func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
         setLocationInfoAccordingToAuthorizationStatus(status)
     }
 }
 
 extension RequiredSettingsViewController: ResourceManagerDelegate{
+    // MARK: ResourceManagerDelegate
+    
     func didRegisterUserNotificationSettings(notificationSettings: UIUserNotificationSettings) {
         setNotificationInfoAccordingToUserNotificationSettings(notificationSettings)
     }

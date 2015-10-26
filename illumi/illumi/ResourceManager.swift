@@ -15,27 +15,26 @@ protocol ResourceManagerDelegate{
     func didRegisterUserNotificationSettings(notificationSettings: UIUserNotificationSettings)
 }
 
-class ResourceManager{
+final class ResourceManager{
     static let sharedInstance = ResourceManager()
     
     lazy var bluetoothPeripheralManager: CBPeripheralManager = {
         return CBPeripheralManager()
     }()
 
-    let locationManager: CLLocationManager
+    lazy var locationManager: CLLocationManager = {
+        return CLLocationManager()
+    }()
     
     var delegate: ResourceManagerDelegate?
     
     private init(){
-        locationManager = CLLocationManager()
     }
     
-    func resourcesRequiredByUserAction() -> Bool{
+    func resourcesAreRequiredByUserAction() -> Bool{
         checkBluetoothConnection()
-        if(locationAuthorizationIsRequired()){
-            return true
-        }
-        return false
+        
+        return locationAuthorizationIsRequired()
     }
     
     private func checkBluetoothConnection(){
@@ -51,10 +50,6 @@ class ResourceManager{
         return true
     }
     
-    func locationAuthorizationStatus()->CLAuthorizationStatus{
-        return CLLocationManager.authorizationStatus()
-    }
-    
     func requestLocationAuthorization(){
         locationManager.requestAlwaysAuthorization()
     }
@@ -63,7 +58,13 @@ class ResourceManager{
         locationManager.delegate = locationManagerdelegate
     }
     
+    func locationAuthorizationStatus()->CLAuthorizationStatus{
+        return CLLocationManager.authorizationStatus()
+    }
+    
+    
     // MARK: Notifications
+    
     func didRegisterUserNotificationSettings(notificationSettings: UIUserNotificationSettings){
         delegate?.didRegisterUserNotificationSettings(notificationSettings)
     }

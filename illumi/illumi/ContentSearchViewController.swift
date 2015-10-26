@@ -17,7 +17,7 @@ class ContentSearchViewController: UIViewController {
     }
     
     override func viewDidAppear(animated: Bool) {
-        if resourceManager.resourcesRequiredByUserAction(){
+        if resourceManager.resourcesAreRequiredByUserAction(){
             performSegueWithIdentifier("showRequiredSettings", sender: self)
         }
     }

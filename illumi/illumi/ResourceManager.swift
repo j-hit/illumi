@@ -54,7 +54,7 @@ final class ResourceManager{
         locationManager.requestAlwaysAuthorization()
     }
     
-    func setLocationManagerDelegate(locationManagerdelegate: CLLocationManagerDelegate){
+    func setLocationManagerDelegate(locationManagerdelegate: CLLocationManagerDelegate?){
         locationManager.delegate = locationManagerdelegate
     }
     

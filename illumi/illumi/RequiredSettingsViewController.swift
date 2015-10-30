@@ -82,6 +82,11 @@ class RequiredSettingsViewController: UIViewController {
     private func setNotificationInfoAccordingToUserNotificationSettings(notificationSettings: UIUserNotificationSettings?){
         if let notificationSettings = notificationSettings{
             notificationSwitch.on = notificationSettings.types.contains(.Alert) ? true : false
+            if(!notificationSettings.types.contains(.Alert)){
+                print("notification settings not containing alert type")
+            }
+        }else{
+            print("notifications declined")
         }
     }
     

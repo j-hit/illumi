@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import CoreLocation
 @testable import illumi
 
 class illumiTests: XCTestCase {
@@ -22,42 +23,50 @@ class illumiTests: XCTestCase {
         super.tearDown()
     }
     
-    func testBluetoothPeripheralShouldNotNil() {
-        XCTAssertNotNil(resourceManager!.bluetoothPeripheralManager)
+    func testBluetoothPeripheralShouldExist() {
+        XCTAssertNotNil(resourceManager!.bluetoothPeripheralManager, "bluetooth peripheral manager should exist")
     }
     
-    func testLocationManagerShouldNotNil(){
-        XCTAssertNotNil(resourceManager!.locationManager)
+    func testLocationManagerShouldExist(){
+        XCTAssertNotNil(resourceManager!.locationManager, "location manager should exist")
     }
     
     func testResourceManagerDelegateShouldBeNil(){
         resourceManager!.delegate = nil
-        XCTAssertNil(resourceManager!.delegate)
+        XCTAssertNil(resourceManager!.delegate, "Resource manager delegate should be nil")
     }
     
     func testResourceManagerDelegateShouldNotNil(){
-        let resourceManagerDelegate = RequiredSettingsViewController()
+        class ResourceManagerDelegateMock: ResourceManagerDelegate{
+            private func didRegisterUserNotificationSettings(notificationSettings: UIUserNotificationSettings) {
+            }
+        }
+        let resourceManagerDelegate = ResourceManagerDelegateMock()
         resourceManager!.delegate = resourceManagerDelegate
-        XCTAssertNotNil(resourceManager!.delegate)
+        XCTAssertNotNil(resourceManager!.delegate, "Resource manager delegate should not be nil")
     }
     
     func testResourceManagerInstancesShouldBeTheSame(){
         let secondInstanceOfResourceManager = ResourceManager.sharedInstance
-        XCTAssert(resourceManager! === secondInstanceOfResourceManager)
+        XCTAssert(resourceManager! === secondInstanceOfResourceManager, "There should only be one instance of the resource manager")
     }
     
     func testLocationAuthorizationMandatory(){
         let locationAuthorizationIsRequired = resourceManager!.locationAuthorizationIsRequired()
         if locationAuthorizationIsRequired{
-            XCTAssert(resourceManager!.resourcesAreRequiredByUserAction() == true)
+            XCTAssert(resourceManager!.resourcesAreRequiredByUserAction() == true, "location authorization should require user action")
         }else{
-            XCTAssert(resourceManager!.resourcesAreRequiredByUserAction() == false)
+            XCTAssert(resourceManager!.resourcesAreRequiredByUserAction() == false, "location authorization done, user action should not be required")
         }
     }
     
     func testLocationManagerDelegateShouldBeNil(){
         resourceManager!.setLocationManagerDelegate(nil)
-        XCTAssert(resourceManager!.locationManager.delegate == nil)
+        XCTAssert(resourceManager!.locationManager.delegate == nil, "location manager delegate should be nil")
+    }
+    
+    func testRequestLocationAuthorization(){
+        resourceManager!.requestLocationAuthorization()
     }
     
     // MARK: Performace test cases

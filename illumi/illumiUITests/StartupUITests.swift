@@ -9,7 +9,7 @@
 import XCTest
 @testable import illumi
 
-class illumiUITests: XCTestCase {
+class startupUITests: XCTestCase {
     
     override func setUp() {
         super.setUp()

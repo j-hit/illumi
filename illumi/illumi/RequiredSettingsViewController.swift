@@ -16,6 +16,7 @@ class RequiredSettingsViewController: UIViewController {
     @IBOutlet weak var notificationSwitch: UISwitch!
     @IBOutlet weak var locationInfoLabel: UILabel!
     @IBOutlet weak var doneButton: UIButton!
+    @IBOutlet weak var notificationInfoLabel: UILabel!
     
     let resourceManager = ResourceManager.sharedInstance
     
@@ -75,18 +76,20 @@ class RequiredSettingsViewController: UIViewController {
     
     @IBAction func requestLocalNotifications(sender: UISwitch) {
         notificationSwitch.enabled = false
+        notificationInfoLabel.text?.removeAll()
         UIApplication.sharedApplication().registerUserNotificationSettings(
             UIUserNotificationSettings(forTypes: .Alert, categories: nil))
     }
     
     private func setNotificationInfoAccordingToUserNotificationSettings(notificationSettings: UIUserNotificationSettings?){
         if let notificationSettings = notificationSettings{
-            notificationSwitch.on = notificationSettings.types.contains(.Alert) ? true : false
-            if(!notificationSettings.types.contains(.Alert)){
-                print("notification settings not containing alert type")
+            if(notificationSettings.types.contains(.Alert)){
+                notificationSwitch.on = true
+                notificationSwitch.enabled = false
+                notificationInfoLabel.hidden = true
+            }else{
+                notificationSwitch.on = false
             }
-        }else{
-            print("notifications declined")
         }
     }
     

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A1A42121BE552F40025B395 /* BeaconManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1A42111BE552F40025B395 /* BeaconManager.swift */; };
+		1A1A42141BE554410025B395 /* BeaconManagerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1A42131BE554410025B395 /* BeaconManagerImpl.swift */; };
 		1A56E4C91BBEA64800D1C90B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A56E4C81BBEA64800D1C90B /* AppDelegate.swift */; };
 		1A56E4CB1BBEA64800D1C90B /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A56E4CA1BBEA64800D1C90B /* FirstViewController.swift */; };
 		1A56E4CD1BBEA64800D1C90B /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A56E4CC1BBEA64800D1C90B /* SecondViewController.swift */; };
@@ -39,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1A1A42111BE552F40025B395 /* BeaconManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconManager.swift; sourceTree = "<group>"; };
+		1A1A42131BE554410025B395 /* BeaconManagerImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconManagerImpl.swift; sourceTree = "<group>"; };
 		1A56E4C51BBEA64800D1C90B /* illumi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = illumi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A56E4C81BBEA64800D1C90B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1A56E4CA1BBEA64800D1C90B /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -117,6 +121,8 @@
 				1A56F7701BDBF049005B1AD7 /* ContentSearchViewController.swift */,
 				1A56F7721BDBF0CB005B1AD7 /* RequiredSettingsViewController.swift */,
 				1A56F7741BDBF298005B1AD7 /* ResourceManager.swift */,
+				1A1A42111BE552F40025B395 /* BeaconManager.swift */,
+				1A1A42131BE554410025B395 /* BeaconManagerImpl.swift */,
 			);
 			path = illumi;
 			sourceTree = "<group>";
@@ -285,6 +291,8 @@
 				1A56E4CD1BBEA64800D1C90B /* SecondViewController.swift in Sources */,
 				1A56E4C91BBEA64800D1C90B /* AppDelegate.swift in Sources */,
 				1A56E4CB1BBEA64800D1C90B /* FirstViewController.swift in Sources */,
+				1A1A42121BE552F40025B395 /* BeaconManager.swift in Sources */,
+				1A1A42141BE554410025B395 /* BeaconManagerImpl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

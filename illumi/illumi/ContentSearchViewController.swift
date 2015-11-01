@@ -7,10 +7,15 @@
 //
 
 import UIKit
+import CoreLocation
 
 class ContentSearchViewController: UIViewController {
-
-    let resourceManager = ResourceManager.sharedInstance // TODO: use lazy
+    
+    let resourceManager = ResourceManager.sharedInstance
+    let beaconManager: BeaconManager = BeaconManagerImpl.sharedInstance
+    
+    static let segueIdentifierToShowRequiredSettings = "showRequiredSettings"
+    static let segueIdentifierToShowMainContent = "showMainContent"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,24 +23,36 @@ class ContentSearchViewController: UIViewController {
     
     override func viewDidAppear(animated: Bool) {
         if resourceManager.resourcesAreRequiredByUserAction(){
-            performSegueWithIdentifier("showRequiredSettings", sender: self)
+            performSegueWithIdentifier(ContentSearchViewController.segueIdentifierToShowRequiredSettings, sender: self) // TODO: remove hard coded string
+        }else{
+            beaconManager.delegate = self
+            beaconManager.startRanging()
         }
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
-
+    
     /*
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // Get the new view controller using segue.destinationViewController.
+    // Pass the selected object to the new view controller.
     }
     */
+}
 
+extension ContentSearchViewController: BeaconManagerDelegate{
+    func beaconManager(didCalculateNearestBeacon beacon: CLBeacon) {
+        print(beacon.asString())
+    }
+    
+    func beaconManager(didRangeBeacons beacons: [CLBeacon]) {
+        beaconManager.delegate = nil // resign as delegate
+        performSegueWithIdentifier(ContentSearchViewController.segueIdentifierToShowMainContent, sender: self)
+    }
 }

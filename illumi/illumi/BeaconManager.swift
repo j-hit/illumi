@@ -18,4 +18,5 @@ protocol BeaconManager: class{
     var delegate: BeaconManagerDelegate? { get set }
     func findNearestBeacon(beacons: [CLBeacon]) -> CLBeacon?
     func startRanging()
+    func startMonitoring()
 }

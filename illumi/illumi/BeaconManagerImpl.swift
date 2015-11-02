@@ -10,9 +10,7 @@ import Foundation
 import CoreLocation
 import UIKit
 
-class BeaconManagerImpl: NSObject{
-    static let sharedInstance = BeaconManagerImpl()
-    
+final class BeaconManagerImpl: NSObject{
     var delegate: BeaconManagerDelegate?
     
     let locationManager: CLLocationManager
@@ -33,7 +31,7 @@ class BeaconManagerImpl: NSObject{
         }
     }
     
-    private override init(){
+    override init(){
         locationManager = CLLocationManager()
         super.init()
         locationManager.delegate = self
@@ -65,7 +63,7 @@ extension BeaconManagerImpl: BeaconManager{
     }
     
     func startRanging(){
-        locationManager.startRangingBeaconsInRegion(CLBeaconRegion(proximityUUID: NSUUID(UUIDString: BeaconIdentifierProvider.illumiUUID)!, identifier: BeaconIdentifierProvider.illumiBeaconsIdentifier))
+        locationManager.startRangingBeaconsInRegion(CLBeaconRegion(proximityUUID: NSUUID(UUIDString: BeaconIdentityProvider.illumiUUID)!, identifier: BeaconIdentityProvider.illumiBeaconsIdentifier))
     }
     
     func startMonitoring(){
@@ -75,23 +73,23 @@ extension BeaconManagerImpl: BeaconManager{
     }
     
     private func startMonitoringForIllumis(){
-        locationManager.startMonitoringForRegion(CLBeaconRegion(proximityUUID: NSUUID(UUIDString: BeaconIdentifierProvider.illumiUUID)!, identifier: BeaconIdentifierProvider.illumiBeaconsIdentifier))
+        locationManager.startMonitoringForRegion(CLBeaconRegion(proximityUUID: NSUUID(UUIDString: BeaconIdentityProvider.illumiUUID)!, identifier: BeaconIdentityProvider.illumiBeaconsIdentifier))
     }
     
     private func startMonitoringForEntrance(){
-        let entranceBeaconIdentifier = BeaconIdentifierProvider.entrance()
+        let entranceBeaconIdentity = BeaconIdentityProvider.entrance()
         let entranceRegion = CLBeaconRegion(
-            proximityUUID: entranceBeaconIdentifier.UUID,
-            major: CLBeaconMajorValue(entranceBeaconIdentifier.major) ?? 0, minor: CLBeaconMinorValue(entranceBeaconIdentifier.minor) ?? 0, identifier: "entrance")
+            proximityUUID: entranceBeaconIdentity.UUID,
+            major: CLBeaconMajorValue(entranceBeaconIdentity.major) ?? 0, minor: CLBeaconMinorValue(entranceBeaconIdentity.minor) ?? 0, identifier: BeaconIdentityProvider.entranceIdentifier)
         entranceRegion.notifyOnExit = false
         locationManager.startMonitoringForRegion(entranceRegion)
     }
     
     private func startMonitoringForExit(){
-        let exitBeaconIdentifier = BeaconIdentifierProvider.exit()
+        let exitBeaconIdentifier = BeaconIdentityProvider.exit()
         let exitRegion = CLBeaconRegion(
             proximityUUID: exitBeaconIdentifier.UUID,
-            major: CLBeaconMajorValue(exitBeaconIdentifier.major) ?? 0, minor: CLBeaconMinorValue(exitBeaconIdentifier.minor) ?? 0, identifier: "exit")
+            major: CLBeaconMajorValue(exitBeaconIdentifier.major) ?? 0, minor: CLBeaconMinorValue(exitBeaconIdentifier.minor) ?? 0, identifier: BeaconIdentityProvider.exitIdentifier)
         exitRegion.notifyOnEntry = false
         locationManager.startMonitoringForRegion(exitRegion)
     }
@@ -101,25 +99,25 @@ extension BeaconManagerImpl: CLLocationManagerDelegate{
     // MARK: CLLocationManagerDelegate
     
     func locationManager(manager: CLLocationManager, didEnterRegion region: CLRegion) {
-        print("didEnterRegion") // TODO: Check identifier
-        
-        let notification = UILocalNotification()
-        notification.alertBody =
-        "Test notification illumi entrance"
-        UIApplication.sharedApplication().presentLocalNotificationNow(notification)
+        if region.identifier == BeaconIdentityProvider.entranceIdentifier {
+            let notification = UILocalNotification()
+            notification.alertBody = NSLocalizedString("EntranceEnteredNotification", comment: "Notification: entrance region entered")
+            UIApplication.sharedApplication().presentLocalNotificationNow(notification)
+            print("didEnterRegion")
+        }
     }
     
     func locationManager(manager: CLLocationManager, didExitRegion region: CLRegion) {
-        print("didExitRegion") // TODO: check identifier
-        
-        let notification = UILocalNotification()
-        notification.alertBody =
-        "Test notification illumi exit"
-        UIApplication.sharedApplication().presentLocalNotificationNow(notification)
+        if region.identifier == BeaconIdentityProvider.exitIdentifier {
+            let notification = UILocalNotification()
+            notification.alertBody = NSLocalizedString("ExitLeftNotification", comment: "Notification: exit region left")
+            UIApplication.sharedApplication().presentLocalNotificationNow(notification)
+            print("didEnterRegion")
+        }
     }
     
     func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
-        // TODO: handle failure
+        print(error.debugDescription)
     }
     
     func locationManager(manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], inRegion region: CLBeaconRegion) {

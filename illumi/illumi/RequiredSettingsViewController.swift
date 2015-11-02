@@ -94,6 +94,7 @@ class RequiredSettingsViewController: UIViewController {
     }
     
     // MARK: Done button
+    
     @IBAction func doneButtonPressed(sender: UIButton) {
         dismissViewControllerAnimated(true, completion: nil)
     }

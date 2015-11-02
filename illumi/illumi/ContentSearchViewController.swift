@@ -12,7 +12,7 @@ import CoreLocation
 class ContentSearchViewController: UIViewController {
     
     let resourceManager = ResourceManager.sharedInstance
-    let beaconManager: BeaconManager = BeaconManagerImpl.sharedInstance
+    var beaconManager: BeaconManager = BeaconManagerImpl()
     
     static let segueIdentifierToShowRequiredSettings = "showRequiredSettings"
     static let segueIdentifierToShowMainContent = "showMainContent"
@@ -23,10 +23,11 @@ class ContentSearchViewController: UIViewController {
     
     override func viewDidAppear(animated: Bool) {
         if resourceManager.resourcesAreRequiredByUserAction(){
-            performSegueWithIdentifier(ContentSearchViewController.segueIdentifierToShowRequiredSettings, sender: self) // TODO: remove hard coded string
+            performSegueWithIdentifier(ContentSearchViewController.segueIdentifierToShowRequiredSettings, sender: self)
         }else{
             beaconManager.delegate = self
             beaconManager.startRanging()
+            beaconManager.startMonitoring()
         }
     }
     
@@ -34,16 +35,13 @@ class ContentSearchViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
+    // MARK: Navigation
     
-    /*
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
+        if let tabBarController = segue.destinationViewController as? UITabBarController, checkpointsViewController = tabBarController.viewControllers?[0] as? CheckpointsViewController{
+            checkpointsViewController.beaconManager = self.beaconManager
+        }
     }
-    */
 }
 
 extension ContentSearchViewController: BeaconManagerDelegate{

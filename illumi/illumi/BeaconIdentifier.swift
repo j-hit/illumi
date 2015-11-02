@@ -9,14 +9,14 @@
 import Foundation
 import CoreLocation
 
-struct BeaconIdentifier {
+struct BeaconIdentity {
     let UUID: NSUUID
     let major: Int32
     let minor: Int32
 }
 
 extension CLBeacon{
-    func beaconIdentifier() -> BeaconIdentifier{
-        return BeaconIdentifier(UUID: proximityUUID, major: major.intValue, minor: minor.intValue)
+    func beaconIdentity() -> BeaconIdentity{
+        return BeaconIdentity(UUID: proximityUUID, major: major.intValue, minor: minor.intValue)
     }
 }

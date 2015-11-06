@@ -11,6 +11,9 @@
 		1A103F1D1BE605DC008360BF /* BeaconIdentityProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A103F1C1BE605DC008360BF /* BeaconIdentityProvider.swift */; };
 		1A1A42121BE552F40025B395 /* BeaconManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1A42111BE552F40025B395 /* BeaconManager.swift */; };
 		1A1A42141BE554410025B395 /* BeaconManagerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1A42131BE554410025B395 /* BeaconManagerImpl.swift */; };
+		1A51A5581BEC7FDC00FC7F59 /* BeaconManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A51A5571BEC7FDC00FC7F59 /* BeaconManagerTests.swift */; };
+		1A51A55A1BEC81BF00FC7F59 /* CLBeaconMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A51A5591BEC81BF00FC7F59 /* CLBeaconMock.swift */; };
+		1A55BE371BEA39BF009D642D /* BeaconIdentifierTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A55BE361BEA39BF009D642D /* BeaconIdentifierTests.swift */; };
 		1A56E4C91BBEA64800D1C90B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A56E4C81BBEA64800D1C90B /* AppDelegate.swift */; };
 		1A56E4CB1BBEA64800D1C90B /* CheckpointsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A56E4CA1BBEA64800D1C90B /* CheckpointsViewController.swift */; };
 		1A56E4CD1BBEA64800D1C90B /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A56E4CC1BBEA64800D1C90B /* SecondViewController.swift */; };
@@ -47,6 +50,9 @@
 		1A103F1C1BE605DC008360BF /* BeaconIdentityProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconIdentityProvider.swift; sourceTree = "<group>"; };
 		1A1A42111BE552F40025B395 /* BeaconManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconManager.swift; sourceTree = "<group>"; };
 		1A1A42131BE554410025B395 /* BeaconManagerImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconManagerImpl.swift; sourceTree = "<group>"; };
+		1A51A5571BEC7FDC00FC7F59 /* BeaconManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconManagerTests.swift; sourceTree = "<group>"; };
+		1A51A5591BEC81BF00FC7F59 /* CLBeaconMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLBeaconMock.swift; sourceTree = "<group>"; };
+		1A55BE361BEA39BF009D642D /* BeaconIdentifierTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconIdentifierTests.swift; sourceTree = "<group>"; };
 		1A56E4C51BBEA64800D1C90B /* illumi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = illumi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A56E4C81BBEA64800D1C90B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1A56E4CA1BBEA64800D1C90B /* CheckpointsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckpointsViewController.swift; sourceTree = "<group>"; };
@@ -138,6 +144,9 @@
 			children = (
 				1A56E4DF1BBEA64900D1C90B /* ResourceManagerTests.swift */,
 				1A56E4E11BBEA64900D1C90B /* Info.plist */,
+				1A55BE361BEA39BF009D642D /* BeaconIdentifierTests.swift */,
+				1A51A5571BEC7FDC00FC7F59 /* BeaconManagerTests.swift */,
+				1A51A5591BEC81BF00FC7F59 /* CLBeaconMock.swift */,
 			);
 			path = illumiTests;
 			sourceTree = "<group>";
@@ -308,7 +317,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A51A5581BEC7FDC00FC7F59 /* BeaconManagerTests.swift in Sources */,
+				1A55BE371BEA39BF009D642D /* BeaconIdentifierTests.swift in Sources */,
 				1A56E4E01BBEA64900D1C90B /* ResourceManagerTests.swift in Sources */,
+				1A51A55A1BEC81BF00FC7F59 /* CLBeaconMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,7 +10,7 @@ import XCTest
 import CoreLocation
 @testable import illumi
 
-class illumiTests: XCTestCase {
+class ResourceManagerTests: XCTestCase {
     
     var resourceManager: ResourceManager?
     

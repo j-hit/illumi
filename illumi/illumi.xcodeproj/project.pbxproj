@@ -7,13 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1A103F1B1BE60468008360BF /* BeaconIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A103F1A1BE60468008360BF /* BeaconIdentifier.swift */; };
+		1A0B77531BED554200320674 /* CheckpointManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0B77521BED554200320674 /* CheckpointManager.swift */; };
+		1A103F1B1BE60468008360BF /* BeaconIdentity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A103F1A1BE60468008360BF /* BeaconIdentity.swift */; };
 		1A103F1D1BE605DC008360BF /* BeaconIdentityProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A103F1C1BE605DC008360BF /* BeaconIdentityProvider.swift */; };
 		1A1A42121BE552F40025B395 /* BeaconManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1A42111BE552F40025B395 /* BeaconManager.swift */; };
 		1A1A42141BE554410025B395 /* BeaconManagerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1A42131BE554410025B395 /* BeaconManagerImpl.swift */; };
 		1A51A5581BEC7FDC00FC7F59 /* BeaconManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A51A5571BEC7FDC00FC7F59 /* BeaconManagerTests.swift */; };
 		1A51A55A1BEC81BF00FC7F59 /* CLBeaconMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A51A5591BEC81BF00FC7F59 /* CLBeaconMock.swift */; };
-		1A55BE371BEA39BF009D642D /* BeaconIdentifierTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A55BE361BEA39BF009D642D /* BeaconIdentifierTests.swift */; };
+		1A55BE371BEA39BF009D642D /* BeaconIdentityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A55BE361BEA39BF009D642D /* BeaconIdentityTests.swift */; };
 		1A56E4C91BBEA64800D1C90B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A56E4C81BBEA64800D1C90B /* AppDelegate.swift */; };
 		1A56E4CB1BBEA64800D1C90B /* CheckpointsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A56E4CA1BBEA64800D1C90B /* CheckpointsViewController.swift */; };
 		1A56E4CD1BBEA64800D1C90B /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A56E4CC1BBEA64800D1C90B /* SecondViewController.swift */; };
@@ -26,6 +27,9 @@
 		1A56F7731BDBF0CB005B1AD7 /* RequiredSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A56F7721BDBF0CB005B1AD7 /* RequiredSettingsViewController.swift */; };
 		1A56F7751BDBF298005B1AD7 /* ResourceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A56F7741BDBF298005B1AD7 /* ResourceManager.swift */; };
 		1A5A8C071BDD0026000850A3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1A5A8C051BDD0026000850A3 /* Localizable.strings */; };
+		1AA1095A1BECD6BC00211F35 /* Checkpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA109591BECD6BC00211F35 /* Checkpoint.swift */; };
+		1AA1095C1BECECB000211F35 /* CheckpointManagerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA1095B1BECECB000211F35 /* CheckpointManagerImpl.swift */; };
+		1AA1095E1BECF0DF00211F35 /* CheckpointTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA1095D1BECF0DF00211F35 /* CheckpointTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,13 +50,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1A103F1A1BE60468008360BF /* BeaconIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconIdentifier.swift; sourceTree = "<group>"; };
+		1A0B77521BED554200320674 /* CheckpointManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckpointManager.swift; sourceTree = "<group>"; };
+		1A103F1A1BE60468008360BF /* BeaconIdentity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconIdentity.swift; sourceTree = "<group>"; };
 		1A103F1C1BE605DC008360BF /* BeaconIdentityProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconIdentityProvider.swift; sourceTree = "<group>"; };
 		1A1A42111BE552F40025B395 /* BeaconManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconManager.swift; sourceTree = "<group>"; };
 		1A1A42131BE554410025B395 /* BeaconManagerImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconManagerImpl.swift; sourceTree = "<group>"; };
 		1A51A5571BEC7FDC00FC7F59 /* BeaconManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconManagerTests.swift; sourceTree = "<group>"; };
 		1A51A5591BEC81BF00FC7F59 /* CLBeaconMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLBeaconMock.swift; sourceTree = "<group>"; };
-		1A55BE361BEA39BF009D642D /* BeaconIdentifierTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconIdentifierTests.swift; sourceTree = "<group>"; };
+		1A55BE361BEA39BF009D642D /* BeaconIdentityTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconIdentityTests.swift; sourceTree = "<group>"; };
 		1A56E4C51BBEA64800D1C90B /* illumi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = illumi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A56E4C81BBEA64800D1C90B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1A56E4CA1BBEA64800D1C90B /* CheckpointsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckpointsViewController.swift; sourceTree = "<group>"; };
@@ -71,6 +76,9 @@
 		1A56F7721BDBF0CB005B1AD7 /* RequiredSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequiredSettingsViewController.swift; sourceTree = "<group>"; };
 		1A56F7741BDBF298005B1AD7 /* ResourceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourceManager.swift; sourceTree = "<group>"; };
 		1A5A8C081BDD006D000850A3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		1AA109591BECD6BC00211F35 /* Checkpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Checkpoint.swift; sourceTree = "<group>"; };
+		1AA1095B1BECECB000211F35 /* CheckpointManagerImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckpointManagerImpl.swift; sourceTree = "<group>"; };
+		1AA1095D1BECF0DF00211F35 /* CheckpointTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckpointTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,7 +146,7 @@
 			children = (
 				1A56E4DF1BBEA64900D1C90B /* ResourceManagerTests.swift */,
 				1A56E4E11BBEA64900D1C90B /* Info.plist */,
-				1A55BE361BEA39BF009D642D /* BeaconIdentifierTests.swift */,
+				1A55BE361BEA39BF009D642D /* BeaconIdentityTests.swift */,
 				1A51A5571BEC7FDC00FC7F59 /* BeaconManagerTests.swift */,
 				1A51A5591BEC81BF00FC7F59 /* CLBeaconMock.swift */,
 			);
@@ -170,6 +178,7 @@
 				1A56E4CC1BBEA64800D1C90B /* SecondViewController.swift */,
 				1A56F7701BDBF049005B1AD7 /* ContentSearchViewController.swift */,
 				1A56F7721BDBF0CB005B1AD7 /* RequiredSettingsViewController.swift */,
+				1AA1095D1BECF0DF00211F35 /* CheckpointTableViewCell.swift */,
 			);
 			name = "illumi-view";
 			sourceTree = "<group>";
@@ -180,8 +189,11 @@
 				1A56F7741BDBF298005B1AD7 /* ResourceManager.swift */,
 				1A1A42111BE552F40025B395 /* BeaconManager.swift */,
 				1A1A42131BE554410025B395 /* BeaconManagerImpl.swift */,
-				1A103F1A1BE60468008360BF /* BeaconIdentifier.swift */,
+				1A103F1A1BE60468008360BF /* BeaconIdentity.swift */,
 				1A103F1C1BE605DC008360BF /* BeaconIdentityProvider.swift */,
+				1AA109591BECD6BC00211F35 /* Checkpoint.swift */,
+				1AA1095B1BECECB000211F35 /* CheckpointManagerImpl.swift */,
+				1A0B77521BED554200320674 /* CheckpointManager.swift */,
 			);
 			name = "illumi-logic";
 			sourceTree = "<group>";
@@ -325,13 +337,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A56F7711BDBF049005B1AD7 /* ContentSearchViewController.swift in Sources */,
+				1A0B77531BED554200320674 /* CheckpointManager.swift in Sources */,
+				1AA1095C1BECECB000211F35 /* CheckpointManagerImpl.swift in Sources */,
 				1A56F7751BDBF298005B1AD7 /* ResourceManager.swift in Sources */,
 				1A56F7731BDBF0CB005B1AD7 /* RequiredSettingsViewController.swift in Sources */,
 				1A56E4CD1BBEA64800D1C90B /* SecondViewController.swift in Sources */,
 				1A56E4C91BBEA64800D1C90B /* AppDelegate.swift in Sources */,
 				1A103F1D1BE605DC008360BF /* BeaconIdentityProvider.swift in Sources */,
+				1AA1095A1BECD6BC00211F35 /* Checkpoint.swift in Sources */,
 				1A56E4CB1BBEA64800D1C90B /* CheckpointsViewController.swift in Sources */,
-				1A103F1B1BE60468008360BF /* BeaconIdentifier.swift in Sources */,
+				1A103F1B1BE60468008360BF /* BeaconIdentity.swift in Sources */,
+				1AA1095E1BECF0DF00211F35 /* CheckpointTableViewCell.swift in Sources */,
 				1A1A42121BE552F40025B395 /* BeaconManager.swift in Sources */,
 				1A1A42141BE554410025B395 /* BeaconManagerImpl.swift in Sources */,
 			);
@@ -342,7 +358,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A51A5581BEC7FDC00FC7F59 /* BeaconManagerTests.swift in Sources */,
-				1A55BE371BEA39BF009D642D /* BeaconIdentifierTests.swift in Sources */,
+				1A55BE371BEA39BF009D642D /* BeaconIdentityTests.swift in Sources */,
 				1A56E4E01BBEA64900D1C90B /* ResourceManagerTests.swift in Sources */,
 				1A51A55A1BEC81BF00FC7F59 /* CLBeaconMock.swift in Sources */,
 			);

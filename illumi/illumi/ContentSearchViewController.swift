@@ -50,7 +50,6 @@ extension ContentSearchViewController: BeaconManagerDelegate{
     }
     
     func beaconManager(didRangeBeacons beacons: [CLBeacon]) {
-        //beaconManager.delegate = nil // TODO: resign as delegate
         performSegueWithIdentifier(ContentSearchViewController.segueIdentifierToShowMainContent, sender: self)
     }
 }

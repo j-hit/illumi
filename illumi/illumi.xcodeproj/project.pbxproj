@@ -121,20 +121,14 @@
 		1A56E4C71BBEA64800D1C90B /* illumi */ = {
 			isa = PBXGroup;
 			children = (
+				1ADA99241BECBF8D001A9D33 /* illumi-view */,
+				1ADA99251BECBF97001A9D33 /* illumi-logic */,
+				1ADA99261BECBFA2001A9D33 /* illumi-service */,
 				1A5A8C041BDCFFEB000850A3 /* Supporting Files */,
 				1A56E4C81BBEA64800D1C90B /* AppDelegate.swift */,
-				1A56E4CA1BBEA64800D1C90B /* CheckpointsViewController.swift */,
-				1A56E4CC1BBEA64800D1C90B /* SecondViewController.swift */,
 				1A56E4CE1BBEA64800D1C90B /* Main.storyboard */,
 				1A56E4D11BBEA64900D1C90B /* Assets.xcassets */,
 				1A56E4D31BBEA64900D1C90B /* LaunchScreen.storyboard */,
-				1A56F7701BDBF049005B1AD7 /* ContentSearchViewController.swift */,
-				1A56F7721BDBF0CB005B1AD7 /* RequiredSettingsViewController.swift */,
-				1A56F7741BDBF298005B1AD7 /* ResourceManager.swift */,
-				1A1A42111BE552F40025B395 /* BeaconManager.swift */,
-				1A1A42131BE554410025B395 /* BeaconManagerImpl.swift */,
-				1A103F1A1BE60468008360BF /* BeaconIdentifier.swift */,
-				1A103F1C1BE605DC008360BF /* BeaconIdentityProvider.swift */,
 			);
 			path = illumi;
 			sourceTree = "<group>";
@@ -167,6 +161,36 @@
 				1A56E4D61BBEA64900D1C90B /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1ADA99241BECBF8D001A9D33 /* illumi-view */ = {
+			isa = PBXGroup;
+			children = (
+				1A56E4CA1BBEA64800D1C90B /* CheckpointsViewController.swift */,
+				1A56E4CC1BBEA64800D1C90B /* SecondViewController.swift */,
+				1A56F7701BDBF049005B1AD7 /* ContentSearchViewController.swift */,
+				1A56F7721BDBF0CB005B1AD7 /* RequiredSettingsViewController.swift */,
+			);
+			name = "illumi-view";
+			sourceTree = "<group>";
+		};
+		1ADA99251BECBF97001A9D33 /* illumi-logic */ = {
+			isa = PBXGroup;
+			children = (
+				1A56F7741BDBF298005B1AD7 /* ResourceManager.swift */,
+				1A1A42111BE552F40025B395 /* BeaconManager.swift */,
+				1A1A42131BE554410025B395 /* BeaconManagerImpl.swift */,
+				1A103F1A1BE60468008360BF /* BeaconIdentifier.swift */,
+				1A103F1C1BE605DC008360BF /* BeaconIdentityProvider.swift */,
+			);
+			name = "illumi-logic";
+			sourceTree = "<group>";
+		};
+		1ADA99261BECBFA2001A9D33 /* illumi-service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "illumi-service";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

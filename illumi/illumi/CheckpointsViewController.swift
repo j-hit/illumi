@@ -48,9 +48,9 @@ class CheckpointsViewController: UITableViewController {
         cell.descriptionLabel.text = checkpoint.asString()
         
         if(checkpoint.cleared){
-            cell.accessoryType = UITableViewCellAccessoryType.Checkmark
+            cell.accessoryType = .Checkmark
         }else{
-            cell.accessoryType = UITableViewCellAccessoryType.None
+            cell.accessoryType = .None
         }
         
         return cell
@@ -59,7 +59,10 @@ class CheckpointsViewController: UITableViewController {
 
 extension CheckpointsViewController: CheckpointManagerDelegate{
     func checkpointManager(didClearCheckpoint checkpoint: Checkpoint) {
-        
+        // TODO: find out what to do
+        dispatch_async(dispatch_get_main_queue()) {
+            self.tableView.reloadData()
+        }
     }
     
     func checkpointManager(didUpdateOrderOfCheckpoints checkpoints: [Checkpoint]) {

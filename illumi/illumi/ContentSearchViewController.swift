@@ -38,8 +38,12 @@ class ContentSearchViewController: UIViewController {
     // MARK: Navigation
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let tabBarController = segue.destinationViewController as? UITabBarController, checkpointsViewController = tabBarController.viewControllers?[0] as? CheckpointsViewController{
-            checkpointsViewController.beaconManager = self.beaconManager
+        if segue.identifier == ContentSearchViewController.segueIdentifierToShowMainContent{
+            if let tabBarController = segue.destinationViewController as? UITabBarController,
+                navigationViewController = tabBarController.viewControllers?[0] as? UINavigationController,
+                checkpointsViewController = navigationViewController.topViewController as? CheckpointsViewController{
+                    checkpointsViewController.beaconManager = self.beaconManager
+            }
         }
     }
 }

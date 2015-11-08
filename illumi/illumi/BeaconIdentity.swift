@@ -17,6 +17,16 @@ struct BeaconIdentity: Equatable {
     let UUID: NSUUID
     let major: Int32
     let minor: Int32
+    
+    init(UUID: NSUUID, major: Int32, minor: Int32){
+        self.UUID = UUID
+        self.major = major
+        self.minor = minor
+    }
+    
+    init(major: Int32, minor: Int32){
+        self.init(UUID: NSUUID(UUIDString: BeaconIdentityProvider.illumiUUID)!, major: major, minor: minor)
+    }
 }
 
 extension CLBeacon{

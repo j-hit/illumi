@@ -9,38 +9,90 @@
 import Foundation
 import CoreLocation
 
-class CheckpointManagerImpl: CheckpointManager{
+final class CheckpointManagerImpl: CheckpointManager{
     var delegate: CheckpointManagerDelegate?
-    var checkpoints: [Checkpoint]{
-        get{
-            var checkpoints = [Checkpoint]()
-            checkpoints.append(Checkpoint(cleared: true, identity: BeaconIdentity(UUID: NSUUID(UUIDString: BeaconIdentityProvider.illumiUUID)!, major: 1, minor: 1)))
-            checkpoints.append(Checkpoint(cleared: false, identity: BeaconIdentity(UUID: NSUUID(UUIDString: BeaconIdentityProvider.illumiUUID)!, major: 1, minor: 2)))
-            checkpoints.append(Checkpoint(cleared: true, identity: BeaconIdentity(UUID: NSUUID(UUIDString: BeaconIdentityProvider.illumiUUID)!, major: 1, minor: 3)))
-            checkpoints.append(Checkpoint(cleared: false, identity: BeaconIdentity(UUID: NSUUID(UUIDString: BeaconIdentityProvider.illumiUUID)!, major: 2, minor: 4)))
-            checkpoints.append(Checkpoint(cleared: true, identity: BeaconIdentity(UUID: NSUUID(UUIDString: BeaconIdentityProvider.illumiUUID)!, major: 2, minor: 5)))
-            checkpoints.append(Checkpoint(cleared: false, identity: BeaconIdentity(UUID: NSUUID(UUIDString: BeaconIdentityProvider.illumiUUID)!, major: 2, minor: 6)))
-            checkpoints.append(Checkpoint(cleared: true, identity: BeaconIdentity(UUID: NSUUID(UUIDString: BeaconIdentityProvider.illumiUUID)!, major: 3, minor: 7)))
-            checkpoints.append(Checkpoint(cleared: false, identity: BeaconIdentity(UUID: NSUUID(UUIDString: BeaconIdentityProvider.illumiUUID)!, major: 3, minor: 8)))
-            checkpoints.append(Checkpoint(cleared: true, identity: BeaconIdentity(UUID: NSUUID(UUIDString: BeaconIdentityProvider.illumiUUID)!, major: 3, minor: 9)))
-            return checkpoints
+    var authenticationManager: AuthenticationManager
+    
+    lazy var checkpoints: [Checkpoint] = {
+        var checkpointList = [Checkpoint]()
+        checkpointList.append(Checkpoint(identity: BeaconIdentity(major: 1, minor: 1)))
+        checkpointList.append(Checkpoint(identity: BeaconIdentity(major: 1, minor: 2)))
+        checkpointList.append(Checkpoint(identity: BeaconIdentity(major: 1, minor: 3)))
+        checkpointList.append(Checkpoint(identity: BeaconIdentity(major: 2, minor: 4)))
+        checkpointList.append(Checkpoint(identity: BeaconIdentity(major: 2, minor: 5)))
+        checkpointList.append(Checkpoint(identity: BeaconIdentity(major: 2, minor: 6)))
+        checkpointList.append(Checkpoint(identity: BeaconIdentity(major: 3, minor: 7)))
+        checkpointList.append(Checkpoint(identity: BeaconIdentity(major: 3, minor: 8)))
+        checkpointList.append(Checkpoint(identity: BeaconIdentity(major: 3, minor: 9)))
+        return checkpointList
+    }()
+    
+    init(authenticationManager: AuthenticationManager){
+        self.authenticationManager = authenticationManager
+        self.authenticationManager.delegate = self
+    }
+    
+    convenience init(){
+        self.init(authenticationManager: AuthenticationManagerImpl())
+    }
+    
+    private func findCheckpoint(withBeaconIdentity beaconIdentify: BeaconIdentity) -> Checkpoint?{
+        if let checkpointForBeaconIdentity = checkpoints.filter({ $0.identity == beaconIdentify }).first{
+            print("Minor of checkpoint = \(checkpointForBeaconIdentity.identity.minor)")
+            return checkpointForBeaconIdentity
         }
+        return nil
+    }
+    
+    private func requestClearingOfCheckpoint(withBeaconIdentity beaconIdentity: BeaconIdentity){
+        guard let checkpoint = findCheckpoint(withBeaconIdentity: beaconIdentity) where checkpoint.cleared == false else{
+            return
+        }
+        authenticationManager.requestUserAuthentication(forCheckpoint: checkpoint)
     }
 }
 
 extension CheckpointManagerImpl: BeaconManagerDelegate{
     func beaconManager(didCalculateNearestBeacon beacon: CLBeacon) {
-        if(beacon.proximity == CLProximity.Immediate){
-            // Call authentication manager
+        // TODO: call light service
+        
+        guard(authenticationManager.state == AuthenticationManagerState.Ready) else{
+            return
         }
+        //print(dateFormatter.stringFromDate(NSDate())) add time cleared to checkpoint.swift
+        
+        switch(beacon.proximity)
+        {
+        case CLProximity.Immediate:
+            print(String(format: "Immediate\nRSSI: %d\nAccuracy: %.4fm", beacon.rssi, beacon.accuracy))
+            requestClearingOfCheckpoint(withBeaconIdentity: beacon.beaconIdentity())
+        case CLProximity.Near:
+            print(String(format: "Near\nRSSI: %d\nAccuracy: %.4fm", beacon.rssi, beacon.accuracy))
+        case CLProximity.Far:
+            print(String(format: "Far\nRSSI: %d\nAccuracy: %.4fm", beacon.rssi, beacon.accuracy))
+        default:
+            print("Unknown " + String(beacon.rssi))
+        }
+        
     }
     
     func beaconManager(didRangeBeacons beacons: [CLBeacon]) {
         /*var checkpoints: [Checkpoint] = []
         for beacon in beacons{
-            checkpoints.append(Checkpoint(cleared: true, identity: beacon.beaconIdentity()))
+        checkpoints.append(Checkpoint(cleared: true, identity: beacon.beaconIdentity()))
         }
         
         delegate?.checkpointManager(didUpdateOrderOfCheckpoints: checkpoints)*/
+    }
+}
+
+extension CheckpointManagerImpl: AuthenticationManagerDelegate{
+    func authenticationManager(authenticationEndedWithError errorMessage: String) {
+        
+    }
+    
+    func authenticationWasSuccessful(forCheckpoint checkpoint: Checkpoint) {
+        checkpoint.cleared = true
+        delegate?.checkpointManager(didClearCheckpoint: checkpoint)
     }
 }

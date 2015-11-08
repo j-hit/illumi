@@ -27,6 +27,8 @@
 		1A56F7731BDBF0CB005B1AD7 /* RequiredSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A56F7721BDBF0CB005B1AD7 /* RequiredSettingsViewController.swift */; };
 		1A56F7751BDBF298005B1AD7 /* ResourceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A56F7741BDBF298005B1AD7 /* ResourceManager.swift */; };
 		1A5A8C071BDD0026000850A3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1A5A8C051BDD0026000850A3 /* Localizable.strings */; };
+		1A641D411BEE6AD400B48ADF /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A641D401BEE6AD400B48ADF /* AuthenticationManager.swift */; };
+		1A641D431BEE6AEE00B48ADF /* AuthenticationManagerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A641D421BEE6AEE00B48ADF /* AuthenticationManagerImpl.swift */; };
 		1AA1095A1BECD6BC00211F35 /* Checkpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA109591BECD6BC00211F35 /* Checkpoint.swift */; };
 		1AA1095C1BECECB000211F35 /* CheckpointManagerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA1095B1BECECB000211F35 /* CheckpointManagerImpl.swift */; };
 		1AA1095E1BECF0DF00211F35 /* CheckpointTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA1095D1BECF0DF00211F35 /* CheckpointTableViewCell.swift */; };
@@ -76,6 +78,8 @@
 		1A56F7721BDBF0CB005B1AD7 /* RequiredSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequiredSettingsViewController.swift; sourceTree = "<group>"; };
 		1A56F7741BDBF298005B1AD7 /* ResourceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourceManager.swift; sourceTree = "<group>"; };
 		1A5A8C081BDD006D000850A3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		1A641D401BEE6AD400B48ADF /* AuthenticationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
+		1A641D421BEE6AEE00B48ADF /* AuthenticationManagerImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationManagerImpl.swift; sourceTree = "<group>"; };
 		1AA109591BECD6BC00211F35 /* Checkpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Checkpoint.swift; sourceTree = "<group>"; };
 		1AA1095B1BECECB000211F35 /* CheckpointManagerImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckpointManagerImpl.swift; sourceTree = "<group>"; };
 		1AA1095D1BECF0DF00211F35 /* CheckpointTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckpointTableViewCell.swift; sourceTree = "<group>"; };
@@ -194,6 +198,8 @@
 				1AA109591BECD6BC00211F35 /* Checkpoint.swift */,
 				1AA1095B1BECECB000211F35 /* CheckpointManagerImpl.swift */,
 				1A0B77521BED554200320674 /* CheckpointManager.swift */,
+				1A641D401BEE6AD400B48ADF /* AuthenticationManager.swift */,
+				1A641D421BEE6AEE00B48ADF /* AuthenticationManagerImpl.swift */,
 			);
 			name = "illumi-logic";
 			sourceTree = "<group>";
@@ -339,9 +345,11 @@
 				1A56F7711BDBF049005B1AD7 /* ContentSearchViewController.swift in Sources */,
 				1A0B77531BED554200320674 /* CheckpointManager.swift in Sources */,
 				1AA1095C1BECECB000211F35 /* CheckpointManagerImpl.swift in Sources */,
+				1A641D411BEE6AD400B48ADF /* AuthenticationManager.swift in Sources */,
 				1A56F7751BDBF298005B1AD7 /* ResourceManager.swift in Sources */,
 				1A56F7731BDBF0CB005B1AD7 /* RequiredSettingsViewController.swift in Sources */,
 				1A56E4CD1BBEA64800D1C90B /* SecondViewController.swift in Sources */,
+				1A641D431BEE6AEE00B48ADF /* AuthenticationManagerImpl.swift in Sources */,
 				1A56E4C91BBEA64800D1C90B /* AppDelegate.swift in Sources */,
 				1A103F1D1BE605DC008360BF /* BeaconIdentityProvider.swift in Sources */,
 				1AA1095A1BECD6BC00211F35 /* Checkpoint.swift in Sources */,

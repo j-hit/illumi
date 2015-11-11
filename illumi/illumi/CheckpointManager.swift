@@ -13,6 +13,7 @@ protocol CheckpointManagerDelegate{
     func checkpointManager(didUpdateOrderOfCheckpoints checkpoints: [Checkpoint])
 }
 
-protocol CheckpointManager: class{
-    
+protocol CheckpointManager: BeaconManagerDelegate{
+    var delegate: CheckpointManagerDelegate? { get set }
+    var checkpoints: [Checkpoint] { get }
 }

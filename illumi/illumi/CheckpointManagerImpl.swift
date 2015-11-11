@@ -38,7 +38,6 @@ final class CheckpointManagerImpl: CheckpointManager{
     
     private func findCheckpoint(withBeaconIdentity beaconIdentify: BeaconIdentity) -> Checkpoint?{
         if let checkpointForBeaconIdentity = checkpoints.filter({ $0.identity == beaconIdentify }).first{
-            print("Minor of checkpoint = \(checkpointForBeaconIdentity.identity.minor)")
             return checkpointForBeaconIdentity
         }
         return nil

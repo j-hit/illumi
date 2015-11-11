@@ -12,7 +12,7 @@ import CoreLocation
 class CheckpointsViewController: UITableViewController {
     let barTintColor = UIColor.grayColor()
     
-    lazy var checkpointManager: CheckpointManagerImpl = CheckpointManagerImpl() // TODO: only use protocol
+    lazy var checkpointManager: CheckpointManager = CheckpointManagerImpl()
     
     var beaconManager: BeaconManager?{
         didSet{

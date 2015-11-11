@@ -59,7 +59,6 @@ extension CheckpointManagerImpl: BeaconManagerDelegate{
         guard(authenticationManager.state == AuthenticationManagerState.Ready) else{
             return
         }
-        //print(dateFormatter.stringFromDate(NSDate())) add time cleared to checkpoint.swift
         
         switch(beacon.proximity)
         {
@@ -88,7 +87,7 @@ extension CheckpointManagerImpl: BeaconManagerDelegate{
 
 extension CheckpointManagerImpl: AuthenticationManagerDelegate{
     func authenticationManager(authenticationEndedWithError errorMessage: String) {
-        
+        print(errorMessage)
     }
     
     func authenticationWasSuccessful(forCheckpoint checkpoint: Checkpoint) {

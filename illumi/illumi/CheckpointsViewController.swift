@@ -84,7 +84,7 @@ extension CheckpointsViewController: CheckpointManagerDelegate{
         dispatch_async(dispatch_get_main_queue()) {
             self.tableView.reloadData()
             UIView.animateWithDuration(0.75, animations: { () -> Void in
-                self.navigationController?.navigationBar.barTintColor = UIColor.greenColor()
+                self.navigationController?.navigationBar.barTintColor = UIColor(red: 110/255, green: 193/255, blue: 54/255, alpha: 1.0)
                 }, completion: { (_) -> Void in
                     self.checkpointsFilter?.filter()
                     self.tableView.reloadData()

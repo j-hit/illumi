@@ -8,7 +8,7 @@
 
 import Foundation
 
-class AllCheckpointsFilter: CheckpointsFilter{
+final class AllCheckpointsFilter: CheckpointsFilter{
     private let originalCheckpointArray: [Checkpoint]
     private var filteredCheckpointArray = [Checkpoint]()
     

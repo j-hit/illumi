@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        customiseAppearance()
         return true
     }
 
@@ -44,6 +44,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didRegisterUserNotificationSettings notificationSettings: UIUserNotificationSettings) {
         ResourceManager.sharedInstance.didRegisterUserNotificationSettings(notificationSettings)
     }
-
+    
+    func customiseAppearance(){
+        UITabBar.appearance().barTintColor = UIColor.lightGrayColor()
+        UITabBar.appearance().tintColor = UIColor.blackColor()
+    }
 }
 

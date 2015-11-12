@@ -77,6 +77,14 @@ class CheckpointsViewController: UITableViewController {
         
         return cell
     }
+    
+    override func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 96.0
+    }
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
 }
 
 extension CheckpointsViewController: CheckpointManagerDelegate{

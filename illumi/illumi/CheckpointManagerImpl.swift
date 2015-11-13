@@ -12,6 +12,7 @@ import CoreLocation
 final class CheckpointManagerImpl: CheckpointManager{
     var delegate: CheckpointManagerDelegate?
     var authenticationManager: AuthenticationManager
+    var lightManager: LightManager
     
     lazy var checkpoints: [Checkpoint] = {
         var checkpointList = [Checkpoint]()
@@ -27,13 +28,14 @@ final class CheckpointManagerImpl: CheckpointManager{
         return checkpointList
     }()
     
-    init(authenticationManager: AuthenticationManager){
+    init(authenticationManager: AuthenticationManager, lightManager: LightManager){
+        self.lightManager = lightManager
         self.authenticationManager = authenticationManager
         self.authenticationManager.delegate = self
     }
     
     convenience init(){
-        self.init(authenticationManager: AuthenticationManagerImpl())
+        self.init(authenticationManager: AuthenticationManagerImpl(), lightManager: LightManagerImpl())
     }
     
     private func findCheckpoint(withBeaconIdentity beaconIdentify: BeaconIdentity) -> Checkpoint?{
@@ -53,7 +55,7 @@ final class CheckpointManagerImpl: CheckpointManager{
 
 extension CheckpointManagerImpl: BeaconManagerDelegate{
     func beaconManager(didCalculateNearestBeacon beacon: CLBeacon) {
-        // TODO: call light service
+        lightManager.haveLightsOnInRangeOfLight(withBeaconIdentity: beacon.beaconIdentity())
         
         guard(authenticationManager.state == AuthenticationManagerState.Ready) else{
             return
@@ -71,7 +73,6 @@ extension CheckpointManagerImpl: BeaconManagerDelegate{
         default:
             print("Unknown " + String(beacon.rssi))
         }
-        
     }
     
     func beaconManager(didRangeBeacons beacons: [CLBeacon]) {

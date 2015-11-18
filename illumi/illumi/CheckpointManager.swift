@@ -10,7 +10,7 @@ import Foundation
 
 protocol CheckpointManagerDelegate{
     func checkpointManager(didClearCheckpoint checkpoint: Checkpoint)
-    func checkpointManager(didUpdateOrderOfCheckpoints checkpoints: [Checkpoint])
+    func checkpointManager(didUpdateNearestCheckpoints checkpoints: [Checkpoint])
 }
 
 protocol CheckpointManager: BeaconManagerDelegate{

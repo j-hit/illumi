@@ -10,6 +10,19 @@ import UIKit
 import CoreLocation
 
 class CheckpointsViewController: UITableViewController {
+    @IBOutlet weak var checkpointFilterSegmentedControl: UISegmentedControl!
+    
+    enum CheckpointFilterSegments: Int{
+        case AllCheckpoints
+        case OpenCheckpoints
+        case ClearedCheckpoints
+    }
+    
+    enum CheckpointTableViewSections: Int{
+        case NearestCheckpointsSection
+        case AlphabeticallySortedCheckpointsSection
+    }
+    
     let barTintColor = UIColor.grayColor()
     
     lazy var checkpointManager: CheckpointManager = CheckpointManagerImpl()
@@ -21,6 +34,11 @@ class CheckpointsViewController: UITableViewController {
     }
     
     var checkpointsFilter: CheckpointsFilter?
+    var nearestCheckpoints: [Checkpoint]?{
+        didSet{
+            tableView.reloadData()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,11 +54,11 @@ class CheckpointsViewController: UITableViewController {
     
     @IBAction func segmentChanged(sender: UISegmentedControl) {
         switch(sender.selectedSegmentIndex){
-        case 0:
+        case CheckpointFilterSegments.AllCheckpoints.rawValue:
             checkpointsFilter = AllCheckpointsFilter(checkpoints: checkpointManager.checkpoints)
-        case 1:
+        case CheckpointFilterSegments.OpenCheckpoints.rawValue:
             checkpointsFilter = OpenCheckpointsFilter(checkpoints: checkpointManager.checkpoints)
-        case 2:
+        case CheckpointFilterSegments.ClearedCheckpoints.rawValue:
             checkpointsFilter = ClearedCheckpointsFilter(checkpoints: checkpointManager.checkpoints)
         default:
             checkpointsFilter = AllCheckpointsFilter(checkpoints: checkpointManager.checkpoints)
@@ -51,24 +69,49 @@ class CheckpointsViewController: UITableViewController {
     // MARK: - Table View
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
+        if(checkpointFilterSegmentedControl.selectedSegmentIndex == CheckpointFilterSegments.AllCheckpoints.rawValue){
+            return 2
+        }else{
+            return 1
+        }
+    }
+    
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if(section == CheckpointTableViewSections.NearestCheckpointsSection.rawValue && tableView.numberOfSections > 1){
+            return "Nearest checkpoints"
+        }else if checkpointFilterSegmentedControl.selectedSegmentIndex == CheckpointFilterSegments.AllCheckpoints.rawValue{
+            return "All checkpoints"
+        }else{
+            return ""
+        }
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return checkpointsFilter?.filteredCheckpoints().count ?? 0
+        if(section == CheckpointTableViewSections.NearestCheckpointsSection.rawValue && tableView.numberOfSections > 1){
+            return nearestCheckpoints?.count ?? 0
+        }else{
+            return checkpointsFilter?.filteredCheckpoints().count ?? 0
+        }
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(CheckpointTableViewCell.identifier, forIndexPath: indexPath) as! CheckpointTableViewCell
         
-        guard let checkpoint = checkpointsFilter?.filteredCheckpoints()[indexPath.row] else{
+        let checkpoint: Checkpoint?
+        if(indexPath.section == CheckpointTableViewSections.NearestCheckpointsSection.rawValue && tableView.numberOfSections > 1){
+            checkpoint = nearestCheckpoints?[indexPath.row]
+        }else{
+            checkpoint = checkpointsFilter?.filteredCheckpoints()[indexPath.row]
+        }
+        
+        guard checkpoint != nil else{
             return cell
         }
         
-        cell.descriptionLabel.text = checkpoint.asString()
+        cell.descriptionLabel.text = checkpoint!.asString()
         
-        if(checkpoint.cleared){
-            cell.statusLabel.text = String(format: NSLocalizedString("CheckpointTimeClearedDescriptionFormat", comment: "Format for description of when a checkpoint was cleared"), NSLocalizedString("CheckpointClearedAt", comment: "Checkpoint info: Describing that a checkpoint was cleared at a specific time"), checkpoint.timeStampWhenCheckpointWasClearedAsString())
+        if(checkpoint!.cleared){
+            cell.statusLabel.text = String(format: NSLocalizedString("CheckpointTimeClearedDescriptionFormat", comment: "Format for description of when a checkpoint was cleared"), NSLocalizedString("CheckpointClearedAt", comment: "Checkpoint info: Describing that a checkpoint was cleared at a specific time"), checkpoint!.timeStampWhenCheckpointWasClearedAsString())
             cell.accessoryType = .Checkmark
         }else{
             cell.statusLabel.text = ""
@@ -101,7 +144,7 @@ extension CheckpointsViewController: CheckpointManagerDelegate{
         }
     }
     
-    func checkpointManager(didUpdateOrderOfCheckpoints checkpoints: [Checkpoint]) {
-        
+    func checkpointManager(didUpdateNearestCheckpoints checkpoints: [Checkpoint]) {
+        nearestCheckpoints = checkpoints
     }
 }

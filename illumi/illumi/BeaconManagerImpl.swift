@@ -23,6 +23,14 @@ final class BeaconManagerImpl: NSObject{
         }
     }
     
+    var nearestBeacons: [CLBeacon]?{
+        didSet{
+            if let beacons = nearestBeacons{
+                delegate?.beaconManager(didRangeNearestBeacons: beacons)
+            }
+        }
+    }
+    
     var nearestBeacon: CLBeacon?{
         didSet{
             if let beacon = nearestBeacon{
@@ -60,6 +68,17 @@ extension BeaconManagerImpl: BeaconManager{
         }
         
         return nearestBeacon
+    }
+    
+    func sortBeaconsAccordingToProximityAndAccuracy(beacons: [CLBeacon]) -> [CLBeacon]?{
+        guard beacons.count > 0 else{
+            return nil
+        }
+        
+        var sortedBeacons = beacons.filter{ $0.proximity != CLProximity.Unknown }
+        sortedBeacons.sortInPlace({ $0.proximity.rawValue == $1.proximity.rawValue ? $0.accuracy < $1.accuracy : $0.proximity.rawValue < $1.proximity.rawValue })
+        
+        return sortedBeacons
     }
     
     func startRanging(){
@@ -124,7 +143,18 @@ extension BeaconManagerImpl: CLLocationManagerDelegate{
         if let nearestBeaconFound = findNearestBeacon(beacons){
             nearestBeacon = nearestBeaconFound
         }
+        if let sortedBeacons = self.sortBeaconsAccordingToProximityAndAccuracy(beacons){
+            self.nearestBeacons = sliceOffFirstThreeBeacons(fromBeaconArray: sortedBeacons)
+        }
         beaconsLastFound = beacons
+    }
+    
+    func sliceOffFirstThreeBeacons(fromBeaconArray beacons: [CLBeacon]) -> [CLBeacon]{
+        if beacons.count > 3{
+            return Array(beacons[0..<3])
+        }else{
+            return beacons
+        }
     }
 }
 

@@ -50,10 +50,15 @@ class ContentSearchViewController: UIViewController {
 
 extension ContentSearchViewController: BeaconManagerDelegate{
     func beaconManager(didCalculateNearestBeacon beacon: CLBeacon) {
-        print(beacon.asString())
     }
     
+    func beaconManager(didRangeNearestBeacons beacons: [CLBeacon]) {
+    }
+
     func beaconManager(didRangeBeacons beacons: [CLBeacon]) {
+        guard beacons.count > 0 else{
+            return
+        }
         performSegueWithIdentifier(ContentSearchViewController.segueIdentifierToShowMainContent, sender: self)
     }
 }

@@ -30,12 +30,17 @@
 		1A5A8C071BDD0026000850A3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1A5A8C051BDD0026000850A3 /* Localizable.strings */; };
 		1A641D411BEE6AD400B48ADF /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A641D401BEE6AD400B48ADF /* AuthenticationManager.swift */; };
 		1A641D431BEE6AEE00B48ADF /* AuthenticationManagerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A641D421BEE6AEE00B48ADF /* AuthenticationManagerImpl.swift */; };
+		1A64ABB61BF8B26D0065106A /* CheckpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A64ABB51BF8B26D0065106A /* CheckpointTests.swift */; };
 		1A6D049C1BF32D4F00F45EEB /* CheckpointsFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A6D049B1BF32D4F00F45EEB /* CheckpointsFilter.swift */; };
 		1A6D049E1BF32E5900F45EEB /* AllCheckpointsFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A6D049D1BF32E5900F45EEB /* AllCheckpointsFilter.swift */; };
 		1A6D04A01BF3331700F45EEB /* OpenCheckpointsFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A6D049F1BF3331700F45EEB /* OpenCheckpointsFilter.swift */; };
 		1AA1095A1BECD6BC00211F35 /* Checkpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA109591BECD6BC00211F35 /* Checkpoint.swift */; };
 		1AA1095C1BECECB000211F35 /* CheckpointManagerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA1095B1BECECB000211F35 /* CheckpointManagerImpl.swift */; };
 		1AA1095E1BECF0DF00211F35 /* CheckpointTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA1095D1BECF0DF00211F35 /* CheckpointTableViewCell.swift */; };
+		1AB5309E1BF5C66F003B8750 /* LightManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB5309D1BF5C66F003B8750 /* LightManager.swift */; };
+		1AB530A01BF5C68A003B8750 /* LightManagerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB5309F1BF5C68A003B8750 /* LightManagerImpl.swift */; };
+		1AB530A21BF5C6F6003B8750 /* LightProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB530A11BF5C6F6003B8750 /* LightProvider.swift */; };
+		1AB530A41BF5CCA8003B8750 /* DesigoCCLightProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB530A31BF5CCA8003B8750 /* DesigoCCLightProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,12 +90,17 @@
 		1A5A8C081BDD006D000850A3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1A641D401BEE6AD400B48ADF /* AuthenticationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		1A641D421BEE6AEE00B48ADF /* AuthenticationManagerImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationManagerImpl.swift; sourceTree = "<group>"; };
+		1A64ABB51BF8B26D0065106A /* CheckpointTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckpointTests.swift; sourceTree = "<group>"; };
 		1A6D049B1BF32D4F00F45EEB /* CheckpointsFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckpointsFilter.swift; sourceTree = "<group>"; };
 		1A6D049D1BF32E5900F45EEB /* AllCheckpointsFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllCheckpointsFilter.swift; sourceTree = "<group>"; };
 		1A6D049F1BF3331700F45EEB /* OpenCheckpointsFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenCheckpointsFilter.swift; sourceTree = "<group>"; };
 		1AA109591BECD6BC00211F35 /* Checkpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Checkpoint.swift; sourceTree = "<group>"; };
 		1AA1095B1BECECB000211F35 /* CheckpointManagerImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckpointManagerImpl.swift; sourceTree = "<group>"; };
 		1AA1095D1BECF0DF00211F35 /* CheckpointTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckpointTableViewCell.swift; sourceTree = "<group>"; };
+		1AB5309D1BF5C66F003B8750 /* LightManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightManager.swift; sourceTree = "<group>"; };
+		1AB5309F1BF5C68A003B8750 /* LightManagerImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightManagerImpl.swift; sourceTree = "<group>"; };
+		1AB530A11BF5C6F6003B8750 /* LightProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightProvider.swift; sourceTree = "<group>"; };
+		1AB530A31BF5CCA8003B8750 /* DesigoCCLightProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesigoCCLightProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +171,7 @@
 				1A55BE361BEA39BF009D642D /* BeaconIdentityTests.swift */,
 				1A51A5571BEC7FDC00FC7F59 /* BeaconManagerTests.swift */,
 				1A51A5591BEC81BF00FC7F59 /* CLBeaconMock.swift */,
+				1A64ABB51BF8B26D0065106A /* CheckpointTests.swift */,
 			);
 			path = illumiTests;
 			sourceTree = "<group>";
@@ -212,6 +223,8 @@
 				1A0B77521BED554200320674 /* CheckpointManager.swift */,
 				1A641D401BEE6AD400B48ADF /* AuthenticationManager.swift */,
 				1A641D421BEE6AEE00B48ADF /* AuthenticationManagerImpl.swift */,
+				1AB5309D1BF5C66F003B8750 /* LightManager.swift */,
+				1AB5309F1BF5C68A003B8750 /* LightManagerImpl.swift */,
 			);
 			name = "illumi-logic";
 			sourceTree = "<group>";
@@ -219,6 +232,8 @@
 		1ADA99261BECBFA2001A9D33 /* illumi-service */ = {
 			isa = PBXGroup;
 			children = (
+				1AB530A11BF5C6F6003B8750 /* LightProvider.swift */,
+				1AB530A31BF5CCA8003B8750 /* DesigoCCLightProvider.swift */,
 			);
 			name = "illumi-service";
 			sourceTree = "<group>";
@@ -354,9 +369,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1AB5309E1BF5C66F003B8750 /* LightManager.swift in Sources */,
 				1A56F7711BDBF049005B1AD7 /* ContentSearchViewController.swift in Sources */,
+				1AB530A41BF5CCA8003B8750 /* DesigoCCLightProvider.swift in Sources */,
 				1A0B77531BED554200320674 /* CheckpointManager.swift in Sources */,
 				1AA1095C1BECECB000211F35 /* CheckpointManagerImpl.swift in Sources */,
+				1AB530A01BF5C68A003B8750 /* LightManagerImpl.swift in Sources */,
 				1A641D411BEE6AD400B48ADF /* AuthenticationManager.swift in Sources */,
 				1A56F7751BDBF298005B1AD7 /* ResourceManager.swift in Sources */,
 				1A6D049E1BF32E5900F45EEB /* AllCheckpointsFilter.swift in Sources */,
@@ -374,6 +392,7 @@
 				1AA1095E1BECF0DF00211F35 /* CheckpointTableViewCell.swift in Sources */,
 				1A1A42121BE552F40025B395 /* BeaconManager.swift in Sources */,
 				1A1A42141BE554410025B395 /* BeaconManagerImpl.swift in Sources */,
+				1AB530A21BF5C6F6003B8750 /* LightProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -385,6 +404,7 @@
 				1A55BE371BEA39BF009D642D /* BeaconIdentityTests.swift in Sources */,
 				1A56E4E01BBEA64900D1C90B /* ResourceManagerTests.swift in Sources */,
 				1A51A55A1BEC81BF00FC7F59 /* CLBeaconMock.swift in Sources */,
+				1A64ABB61BF8B26D0065106A /* CheckpointTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

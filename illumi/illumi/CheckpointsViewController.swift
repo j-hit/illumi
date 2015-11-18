@@ -78,9 +78,9 @@ class CheckpointsViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if(section == CheckpointTableViewSections.NearestCheckpointsSection.rawValue && tableView.numberOfSections > 1){
-            return "Nearest checkpoints"
+            return NSLocalizedString("NearestCheckpointsSection", comment: "Section info: Nearest checkpoints")
         }else if checkpointFilterSegmentedControl.selectedSegmentIndex == CheckpointFilterSegments.AllCheckpoints.rawValue{
-            return "All checkpoints"
+            return NSLocalizedString("AllCheckpointsSection", comment: "Section info: All checkpoints")
         }else{
             return ""
         }

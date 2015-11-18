@@ -15,11 +15,15 @@ class BeaconManagerTests: XCTestCase {
     class BeaconManagerDelegateMock: BeaconManagerDelegate{
         var nearestBeacon: CLBeacon?
         var rangedBeacons: [CLBeacon]?
+        var nearestBeacons: [CLBeacon]?
         func beaconManager(didCalculateNearestBeacon beacon: CLBeacon) {
             nearestBeacon = beacon
         }
         func beaconManager(didRangeBeacons beacons: [CLBeacon]) {
             rangedBeacons = beacons
+        }
+        func beaconManager(didRangeNearestBeacons beacons: [CLBeacon]){
+            nearestBeacons = beacons
         }
     }
     

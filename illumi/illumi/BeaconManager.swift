@@ -12,6 +12,7 @@ import CoreLocation
 protocol BeaconManagerDelegate{
     func beaconManager(didRangeBeacons beacons: [CLBeacon])
     func beaconManager(didCalculateNearestBeacon beacon: CLBeacon)
+    func beaconManager(didRangeNearestBeacons beacons: [CLBeacon])
 }
 
 protocol BeaconManager: class{

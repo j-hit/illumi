@@ -76,12 +76,17 @@ extension CheckpointManagerImpl: BeaconManagerDelegate{
     }
     
     func beaconManager(didRangeBeacons beacons: [CLBeacon]) {
-        /*var checkpoints: [Checkpoint] = []
-        for beacon in beacons{
-        checkpoints.append(Checkpoint(cleared: true, identity: beacon.beaconIdentity()))
-        }
         
-        delegate?.checkpointManager(didUpdateOrderOfCheckpoints: checkpoints)*/
+    }
+    
+    func beaconManager(didRangeNearestBeacons beacons: [CLBeacon]) {
+        var checkpointsAssignedToRangedBeacons = [Checkpoint]()
+        for beacon in beacons{
+            if let checkpoint = findCheckpoint(withBeaconIdentity: beacon.beaconIdentity()){
+                checkpointsAssignedToRangedBeacons.append(checkpoint)
+            }
+        }
+        delegate?.checkpointManager(didUpdateNearestCheckpoints: checkpointsAssignedToRangedBeacons)
     }
 }
 

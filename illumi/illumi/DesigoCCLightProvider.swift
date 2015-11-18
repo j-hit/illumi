@@ -14,8 +14,6 @@ class DesigoCCLightProvider: LightProvider{
     }
     
     func turnOnLights(withIdentifiers identifiers: Set<Int32>) {
-        if(identifiers.contains(1)){
-            print("test for turning on the lights")
-        }
+
     }
 }

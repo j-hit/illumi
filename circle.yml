@@ -13,7 +13,7 @@ test:
         PROVISIONING_PROFILE=
         -sdk iphonesimulator
         -destination 'platform=iOS Simulator,OS=latest,name=iPhone 6'
-        -project illumi/illumi.xcodeproj
+        -workspace illumi/illumi.xcworkspace
         -scheme "illumi"
         clean build test |
       tee $CIRCLE_ARTIFACTS/xcode_raw.log |

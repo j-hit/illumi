@@ -48,5 +48,10 @@
 	</array>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>We need your location in order to turn on the lights according to where you are</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 </dict>
 </plist>

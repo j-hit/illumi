@@ -11,6 +11,19 @@ import CoreLocation
 
 class ContentSearchViewController: UIViewController {
     
+    @IBOutlet weak var additionalDetailsLabel: UILabel!
+    
+    @IBAction func viewDidGetSingleTapped(sender: UITapGestureRecognizer) {
+        additionalDetailsLabel.alpha = 0
+        additionalDetailsLabel.text = "Sure you're in a supported location?"
+        UIView.animateWithDuration(2.0, animations: { () -> Void in
+                self.additionalDetailsLabel.alpha = 1
+            }) { (done) -> Void in
+                self.additionalDetailsLabel.text = ""
+        }
+        
+    }
+    
     let resourceManager = ResourceManager.sharedInstance
     var beaconManager: BeaconManager = BeaconManagerImpl()
     
@@ -54,7 +67,7 @@ extension ContentSearchViewController: BeaconManagerDelegate{
     
     func beaconManager(didRangeNearestBeacons beacons: [CLBeacon]) {
     }
-
+    
     func beaconManager(didRangeBeacons beacons: [CLBeacon]) {
         guard beacons.count > 0 else{
             return

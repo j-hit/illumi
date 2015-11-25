@@ -115,18 +115,29 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="1Md-64-eJX">
-                                <rect key="frame" x="40" y="266" width="520" height="68"/>
+                                <rect key="frame" x="40" y="259" width="520" height="83"/>
                                 <subviews>
                                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="eAa-KN-RHq">
                                         <rect key="frame" x="250" y="0.0" width="20" height="20"/>
                                         <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     </activityIndicatorView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trying to get you illuminated" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zbw-O7-4my">
-                                        <rect key="frame" x="97" y="35" width="327" height="33"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="WFY-Tv-ZCM">
+                                        <rect key="frame" x="97" y="35" width="327" height="48"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trying to get you illuminated" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zbw-O7-4my">
+                                                <rect key="frame" x="0.0" y="0.0" width="327" height="33"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L1m-WP-ath">
+                                                <rect key="frame" x="0.0" y="48" width="327" height="0.0"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -134,19 +145,29 @@
                         <accessibility key="accessibilityConfiguration" hint="Wait until the lights turn on" label="Content Search">
                             <bool key="isElement" value="NO"/>
                         </accessibility>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="1Md-64-eJX" firstAttribute="leading" secondItem="4bU-uI-9bT" secondAttribute="leadingMargin" constant="20" id="8RI-LO-chq"/>
                             <constraint firstAttribute="trailingMargin" secondItem="1Md-64-eJX" secondAttribute="trailing" constant="20" id="MvK-AO-5qD"/>
                             <constraint firstItem="1Md-64-eJX" firstAttribute="centerY" secondItem="4bU-uI-9bT" secondAttribute="centerY" id="V3i-QR-LTZ"/>
                             <constraint firstItem="1Md-64-eJX" firstAttribute="centerX" secondItem="4bU-uI-9bT" secondAttribute="centerX" id="eYl-Be-Vrn"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="dWQ-3T-xao" appends="YES" id="XJj-Yz-DoX"/>
+                        </connections>
                     </view>
                     <connections>
+                        <outlet property="additionalDetailsLabel" destination="L1m-WP-ath" id="A3K-Fh-Eax"/>
                         <segue destination="49e-Tb-3d3" kind="show" identifier="showMainContent" id="xU7-vg-Rkw"/>
                         <segue destination="rHD-eO-G2Z" kind="presentation" identifier="showRequiredSettings" id="pOh-CI-c4u"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j3R-s6-Avp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer numberOfTapsRequired="2" id="dWQ-3T-xao">
+                    <connections>
+                        <action selector="viewDidGetSingleTapped:" destination="mj9-dc-9w4" id="tou-Gl-Yd3"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-832" y="0.0"/>
         </scene>

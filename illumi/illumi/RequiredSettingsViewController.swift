@@ -50,7 +50,7 @@ class RequiredSettingsViewController: UIViewController {
             doneButton.enabled = true
         case .Denied:
             locationSwitch.on = false
-            locationSwitch.enabled = false
+            locationSwitch.enabled = true
             setLocationInfoLabel(NSLocalizedString("LocationDenied", comment: "Info message: Location denied"))
         case .NotDetermined:
             locationSwitch.on = false
@@ -69,6 +69,7 @@ class RequiredSettingsViewController: UIViewController {
     }
     
     @IBAction func askForAccessToLocation(sender: UISwitch) {
+        locationSwitch.on = false
         resourceManager.requestLocationAuthorization()
     }
     

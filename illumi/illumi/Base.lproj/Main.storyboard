@@ -303,7 +303,9 @@
                                 <accessibility key="accessibilityConfiguration" hint="Tap to close the modal required settings view" identifier="Done" label="Done">
                                     <accessibilityTraits key="traits" button="YES"/>
                                 </accessibility>
-                                <state key="normal" title="Done"/>
+                                <state key="normal" title="Done">
+                                    <color key="titleColor" red="0.91764705879999997" green="0.7725490196" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="doneButtonPressed:" destination="rHD-eO-G2Z" eventType="touchUpInside" id="v8l-yc-j5T"/>
                                 </connections>

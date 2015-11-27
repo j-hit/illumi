@@ -25,7 +25,8 @@ class ContentSearchViewController: UIViewController {
     
     @IBAction func viewDidDetectLongPress(sender: UILongPressGestureRecognizer) {
         if sender.state == UIGestureRecognizerState.Recognized{
-            UIView.animateWithDuration(1.5, animations: { () -> Void in
+            additionalDetailsLabel.text = NSLocalizedString("DemoModeStarting", comment: "Info message: Demo mode starting")
+            UIView.animateWithDuration(2.0, animations: { () -> Void in
                     self.view.alpha = 0
                 }, completion: { (done) -> Void in
                     self.performSegueWithIdentifier(ContentSearchViewController.segueIdentifierToShowMainContent, sender: self)

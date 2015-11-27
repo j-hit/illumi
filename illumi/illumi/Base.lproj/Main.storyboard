@@ -154,6 +154,7 @@
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="dWQ-3T-xao" appends="YES" id="XJj-Yz-DoX"/>
+                            <outletCollection property="gestureRecognizers" destination="qfo-2P-h6w" appends="YES" id="jJO-la-4yx"/>
                         </connections>
                     </view>
                     <connections>
@@ -168,6 +169,11 @@
                         <action selector="viewDidGetSingleTapped:" destination="mj9-dc-9w4" id="tou-Gl-Yd3"/>
                     </connections>
                 </tapGestureRecognizer>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="3" id="qfo-2P-h6w">
+                    <connections>
+                        <action selector="viewDidDetectLongPress:" destination="mj9-dc-9w4" id="YV4-mG-06g"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-832" y="0.0"/>
         </scene>

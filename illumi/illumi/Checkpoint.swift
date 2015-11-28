@@ -12,6 +12,7 @@ class Checkpoint{
     let dateFormatter: NSDateFormatter
     
     var identity: BeaconIdentity
+    var description: String
     var cleared: Bool{
         didSet{
             if(cleared == true){
@@ -21,15 +22,20 @@ class Checkpoint{
     }
     var timeStampWhenCleared: NSDate?
     
-    init(cleared: Bool, identity: BeaconIdentity){
+    init(cleared: Bool, identity: BeaconIdentity, description: String){
         self.cleared = cleared
         self.identity = identity
+        self.description = description
         self.dateFormatter = NSDateFormatter()
         dateFormatter.setLocalizedDateFormatFromTemplate("jjmmss")
     }
     
     convenience init(identity: BeaconIdentity){
-        self.init(cleared: false, identity: identity)
+        self.init(cleared: false, identity: identity, description: "")
+    }
+    
+    convenience init(identity: BeaconIdentity, description: String){
+        self.init(cleared: false, identity: identity, description: description)
     }
     
     func timeStampWhenCheckpointWasClearedAsString()->String{
@@ -37,9 +43,5 @@ class Checkpoint{
             return ""
         }
         return dateFormatter.stringFromDate(timeStamp)
-    }
-    
-    func asString() -> String{
-        return "Major: \(identity.major), minor: \(identity.minor)"
     }
 }

@@ -108,7 +108,7 @@ class CheckpointsViewController: UITableViewController {
             return cell
         }
         
-        cell.descriptionLabel.text = checkpoint!.asString()
+        cell.descriptionLabel.text = checkpoint!.description
         
         if(checkpoint!.cleared){
             cell.statusLabel.text = String(format: NSLocalizedString("CheckpointTimeClearedDescriptionFormat", comment: "Format for description of when a checkpoint was cleared"), NSLocalizedString("CheckpointClearedAt", comment: "Checkpoint info: Describing that a checkpoint was cleared at a specific time"), checkpoint!.timeStampWhenCheckpointWasClearedAsString())

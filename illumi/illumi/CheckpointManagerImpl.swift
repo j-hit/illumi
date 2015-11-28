@@ -16,15 +16,15 @@ final class CheckpointManagerImpl: CheckpointManager{
     
     lazy var checkpoints: [Checkpoint] = {
         var checkpointList = [Checkpoint]()
-        checkpointList.append(Checkpoint(identity: BeaconIdentity(major: 1, minor: 1)))
-        checkpointList.append(Checkpoint(identity: BeaconIdentity(major: 1, minor: 2)))
-        checkpointList.append(Checkpoint(identity: BeaconIdentity(major: 1, minor: 3)))
-        checkpointList.append(Checkpoint(identity: BeaconIdentity(major: 2, minor: 4)))
-        checkpointList.append(Checkpoint(identity: BeaconIdentity(major: 2, minor: 5)))
-        checkpointList.append(Checkpoint(identity: BeaconIdentity(major: 2, minor: 6)))
-        checkpointList.append(Checkpoint(identity: BeaconIdentity(major: 3, minor: 7)))
-        checkpointList.append(Checkpoint(identity: BeaconIdentity(major: 3, minor: 8)))
-        checkpointList.append(Checkpoint(identity: BeaconIdentity(major: 3, minor: 9)))
+        checkpointList.append(Checkpoint(identity: BeaconIdentity(major: 1, minor: 1), description: "Zaehlerweg 3 - 102"))
+        checkpointList.append(Checkpoint(identity: BeaconIdentity(major: 1, minor: 2), description: "Zaehlerweg 3 - 213"))
+        checkpointList.append(Checkpoint(identity: BeaconIdentity(major: 1, minor: 3), description: "Zaehlerweg 3 - 384"))
+        checkpointList.append(Checkpoint(identity: BeaconIdentity(major: 2, minor: 4), description: "Zaehlerweg 3 - 452"))
+        checkpointList.append(Checkpoint(identity: BeaconIdentity(major: 2, minor: 5), description: "Zaehlerweg 5 - 550"))
+        checkpointList.append(Checkpoint(identity: BeaconIdentity(major: 2, minor: 6), description: "Zaehlerweg 5 - 673"))
+        checkpointList.append(Checkpoint(identity: BeaconIdentity(major: 3, minor: 7), description: "Zaehlerweg 7 - 781"))
+        checkpointList.append(Checkpoint(identity: BeaconIdentity(major: 3, minor: 8), description: "Zaehlerweg 7 - 833"))
+        checkpointList.append(Checkpoint(identity: BeaconIdentity(major: 3, minor: 9), description: "Zaehlerweg 9 - 962"))
         return checkpointList
     }()
     

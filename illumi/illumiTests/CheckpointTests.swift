@@ -25,12 +25,12 @@ class CheckpointTests: XCTestCase {
     }
     
     func testCheckpointShouldNotHaveTimeStampIfNotCleared(){
-        let checkpoint: Checkpoint = Checkpoint(cleared: false, identity: BeaconIdentity(major: 1, minor: 1))
+        let checkpoint: Checkpoint = Checkpoint(cleared: false, identity: BeaconIdentity(major: 1, minor: 1), description: "")
         XCTAssertEqual(checkpoint.timeStampWhenCheckpointWasClearedAsString(), "")
     }
     
     func testCheckpointShouldBeClearedWhenCreated(){
-        let checkpoint: Checkpoint = Checkpoint(cleared: true, identity: BeaconIdentity(major: 1, minor: 1))
+        let checkpoint: Checkpoint = Checkpoint(cleared: true, identity: BeaconIdentity(major: 1, minor: 1), description: "")
         XCTAssertEqual(checkpoint.cleared, true)
     }
     

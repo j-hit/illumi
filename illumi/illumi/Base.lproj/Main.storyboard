@@ -115,18 +115,29 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="1Md-64-eJX">
-                                <rect key="frame" x="40" y="266" width="520" height="68"/>
+                                <rect key="frame" x="40" y="259" width="520" height="83"/>
                                 <subviews>
                                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="eAa-KN-RHq">
                                         <rect key="frame" x="250" y="0.0" width="20" height="20"/>
                                         <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     </activityIndicatorView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trying to get you illuminated" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zbw-O7-4my">
-                                        <rect key="frame" x="97" y="35" width="327" height="33"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="WFY-Tv-ZCM">
+                                        <rect key="frame" x="97" y="35" width="327" height="48"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trying to get you illuminated" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zbw-O7-4my">
+                                                <rect key="frame" x="0.0" y="0.0" width="327" height="33"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L1m-WP-ath">
+                                                <rect key="frame" x="0.0" y="48" width="327" height="0.0"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -134,19 +145,35 @@
                         <accessibility key="accessibilityConfiguration" hint="Wait until the lights turn on" label="Content Search">
                             <bool key="isElement" value="NO"/>
                         </accessibility>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="1Md-64-eJX" firstAttribute="leading" secondItem="4bU-uI-9bT" secondAttribute="leadingMargin" constant="20" id="8RI-LO-chq"/>
                             <constraint firstAttribute="trailingMargin" secondItem="1Md-64-eJX" secondAttribute="trailing" constant="20" id="MvK-AO-5qD"/>
                             <constraint firstItem="1Md-64-eJX" firstAttribute="centerY" secondItem="4bU-uI-9bT" secondAttribute="centerY" id="V3i-QR-LTZ"/>
                             <constraint firstItem="1Md-64-eJX" firstAttribute="centerX" secondItem="4bU-uI-9bT" secondAttribute="centerX" id="eYl-Be-Vrn"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="dWQ-3T-xao" appends="YES" id="XJj-Yz-DoX"/>
+                            <outletCollection property="gestureRecognizers" destination="qfo-2P-h6w" appends="YES" id="jJO-la-4yx"/>
+                        </connections>
                     </view>
                     <connections>
+                        <outlet property="additionalDetailsLabel" destination="L1m-WP-ath" id="A3K-Fh-Eax"/>
                         <segue destination="49e-Tb-3d3" kind="show" identifier="showMainContent" id="xU7-vg-Rkw"/>
                         <segue destination="rHD-eO-G2Z" kind="presentation" identifier="showRequiredSettings" id="pOh-CI-c4u"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j3R-s6-Avp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer numberOfTapsRequired="2" id="dWQ-3T-xao">
+                    <connections>
+                        <action selector="viewDidGetSingleTapped:" destination="mj9-dc-9w4" id="tou-Gl-Yd3"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="3" id="qfo-2P-h6w">
+                    <connections>
+                        <action selector="viewDidDetectLongPress:" destination="mj9-dc-9w4" id="YV4-mG-06g"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-832" y="0.0"/>
         </scene>
@@ -165,7 +192,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="gD5-am-NjO">
                                 <rect key="frame" x="30" y="60" width="540" height="62"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vW4-ng-zoQ">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" minimumScaleFactor="0.29999999999999999" translatesAutoresizingMaskIntoConstraints="NO" id="vW4-ng-zoQ">
                                         <rect key="frame" x="0.0" y="0.0" width="540" height="62"/>
                                         <accessibility key="accessibilityConfiguration" label="View description"/>
                                         <string key="text">We use location to display you the nearest checkpoints and provide you with a gush of light. Bluetooth makes this possible. Give us access to start enjoying illumi.</string>
@@ -176,19 +203,19 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="S7H-DD-7H3">
-                                <rect key="frame" x="30" y="384" width="540" height="87"/>
+                                <rect key="frame" x="30" y="381" width="540" height="90"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="mek-UO-zUl">
-                                        <rect key="frame" x="0.0" y="0.0" width="540" height="34"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="540" height="37"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bluetooth" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HZq-O8-C9k">
-                                                <rect key="frame" x="0.0" y="0.0" width="540" height="20"/>
-                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bluetooth" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.29999999999999999" translatesAutoresizingMaskIntoConstraints="NO" id="HZq-O8-C9k">
+                                                <rect key="frame" x="0.0" y="0.0" width="540" height="23"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Make sure Bluetooth is on" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dgi-bz-llW">
-                                                <rect key="frame" x="0.0" y="20" width="540" height="14"/>
+                                                <rect key="frame" x="0.0" y="23" width="540" height="14"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -196,14 +223,14 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="7ID-hn-8RT">
-                                        <rect key="frame" x="0.0" y="42" width="540" height="45"/>
+                                        <rect key="frame" x="0.0" y="45" width="540" height="45"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vOn-a4-mms">
                                                 <rect key="frame" x="0.0" y="0.0" width="540" height="31"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Sj-YA-i8V">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.29999999999999999" translatesAutoresizingMaskIntoConstraints="NO" id="2Sj-YA-i8V">
                                                         <rect key="frame" x="0.0" y="0.0" width="491" height="31"/>
-                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -248,9 +275,9 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jxb-D3-ybd">
                                         <rect key="frame" x="0.0" y="14" width="540" height="31"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notifications" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="930-54-OXf">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notifications" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.29999999999999999" translatesAutoresizingMaskIntoConstraints="NO" id="930-54-OXf">
                                                 <rect key="frame" x="0.0" y="0.0" width="491" height="31"/>
-                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -263,7 +290,7 @@
                                             </switch>
                                         </subviews>
                                     </stackView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let us give you hints about places this app can be used in" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uzT-mH-a9r">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let us give you hints about places this app can be used in" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uzT-mH-a9r">
                                         <rect key="frame" x="0.0" y="45" width="540" height="14"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -282,7 +309,9 @@
                                 <accessibility key="accessibilityConfiguration" hint="Tap to close the modal required settings view" identifier="Done" label="Done">
                                     <accessibilityTraits key="traits" button="YES"/>
                                 </accessibility>
-                                <state key="normal" title="Done"/>
+                                <state key="normal" title="Done">
+                                    <color key="titleColor" red="0.91764705879999997" green="0.7725490196" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="doneButtonPressed:" destination="rHD-eO-G2Z" eventType="touchUpInside" id="v8l-yc-j5T"/>
                                 </connections>

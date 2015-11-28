@@ -51,7 +51,13 @@ final class ResourceManager{
     }
     
     func requestLocationAuthorization(){
-        locationManager.requestAlwaysAuthorization()
+        if locationAuthorizationStatus() == .Denied {
+            if let settingsUrl = NSURL(string: UIApplicationOpenSettingsURLString) {
+                UIApplication.sharedApplication().openURL(settingsUrl)
+            }
+        }else{
+            locationManager.requestAlwaysAuthorization()
+        }
     }
     
     func setLocationManagerDelegate(locationManagerdelegate: CLLocationManagerDelegate?){

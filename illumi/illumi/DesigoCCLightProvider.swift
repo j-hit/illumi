@@ -87,7 +87,6 @@ final class DesigoCCLightProvider{
     
     private func bodyForChangingPresentValue(toValue value: Int) -> [NSDictionary]{
         return [
-            ["Name": "Priority", "Value": 8, "DataType": "ExtendedEnum"],
             ["Name": "Value", "Value": value, "DataType": "ExtendedEnum"]
         ]
     }
@@ -97,7 +96,7 @@ final class DesigoCCLightProvider{
             return nil
         }
         
-        return baseURL + "/commands/GmsDevice_1_1_\(webServiceLightIdentifier).Present_Value/WritePrio"
+        return baseURL + "/commands/GmsDevice_1_3457_\(webServiceLightIdentifier).Present_Value/Write"
     }
     
     private func URLRequestForChangingPresentValue(withURLString url: String, toValue value: Int) -> NSURLRequest?{

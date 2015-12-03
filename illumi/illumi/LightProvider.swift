@@ -8,7 +8,13 @@
 
 import Foundation
 
+protocol LightProviderDelegate{
+    func didTurnOnLight(withIdentifier identifier: Int32)
+    func didTurnOffLight(withIdentifier identifier: Int32)
+}
+
 protocol LightProvider{
+    var delegate: LightProviderDelegate? { get set }
     func turnOnLights(withIdentifiers identifiers: Set<Int32>)
     func turnOffLights(withIdentifiers identifiers: Set<Int32>)
 }

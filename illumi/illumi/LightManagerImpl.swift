@@ -18,6 +18,7 @@ final class LightManagerImpl: LightManager{
     
     convenience init(){
         self.init(lightProvider: DesigoCCLightProvider())
+        self.lightProvider.delegate = self
     }
     
     func haveLightsOnInRangeOfLight(withBeaconIdentity identity: BeaconIdentity){
@@ -27,13 +28,8 @@ final class LightManagerImpl: LightManager{
         
         let lightsToBeOn: Set<Int32> = calculateLightsToBeOn(accordingToIdentifier: identity.minor)
         
-        let lightsToBeTurnedOn = calculateLightsToBeTurnedOn(lightsToBeOn)
-        lightProvider.turnOnLights(withIdentifiers: lightsToBeTurnedOn)
-        
-        let lightsToBeTurnedOff = calculateLightsToBeTurnedOff(lightsToBeOn)
-        lightProvider.turnOffLights(withIdentifiers: lightsToBeTurnedOff)
-        
-        lightsTurnedOn = lightsToBeOn
+        lightProvider.turnOnLights(withIdentifiers: calculateLightsToBeTurnedOn(lightsToBeOn))
+        lightProvider.turnOffLights(withIdentifiers: calculateLightsToBeTurnedOff(lightsToBeOn))
     }
     
     private func calculateLightsToBeOn(accordingToIdentifier identifier: Int32) -> Set<Int32>{
@@ -53,5 +49,15 @@ final class LightManagerImpl: LightManager{
     
     private func calculateLightsToBeTurnedOff(lightsToBeOn: Set<Int32>) -> Set<Int32>{
         return lightsTurnedOn.subtract(lightsToBeOn)
+    }
+}
+
+extension LightManagerImpl: LightProviderDelegate{
+    func didTurnOffLight(withIdentifier identifier: Int32) {
+        lightsTurnedOn.remove(identifier)
+    }
+    
+    func didTurnOnLight(withIdentifier identifier: Int32) {
+        lightsTurnedOn.insert(identifier)
     }
 }

@@ -10,6 +10,8 @@ import Foundation
 import Alamofire
 
 final class DesigoCCLightProvider{
+    var delegate: LightProviderDelegate?
+    
     private let baseURL = "http://172.20.10.9/wsi/api"
     private var accessToken: String?
     
@@ -75,6 +77,11 @@ final class DesigoCCLightProvider{
                 switch response.result {
                 case .Success:
                     print("successfully changed the present value")
+                    if(state == .On){
+                        self.delegate?.didTurnOnLight(withIdentifier: identifier)
+                    } else{
+                        self.delegate?.didTurnOffLight(withIdentifier: identifier)
+                    }
                 case .Failure(let error):
                     print(error)
                     if response.response?.statusCode == 401{

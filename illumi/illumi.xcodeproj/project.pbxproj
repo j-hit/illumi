@@ -42,6 +42,7 @@
 		1AB530A01BF5C68A003B8750 /* LightManagerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB5309F1BF5C68A003B8750 /* LightManagerImpl.swift */; };
 		1AB530A21BF5C6F6003B8750 /* LightProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB530A11BF5C6F6003B8750 /* LightProvider.swift */; };
 		1AB530A41BF5CCA8003B8750 /* DesigoCCLightProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB530A31BF5CCA8003B8750 /* DesigoCCLightProvider.swift */; };
+		1ACCE4CD1C12E31500FF70F1 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1ACCE4CC1C12E31500FF70F1 /* Settings.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +103,7 @@
 		1AB5309F1BF5C68A003B8750 /* LightManagerImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightManagerImpl.swift; sourceTree = "<group>"; };
 		1AB530A11BF5C6F6003B8750 /* LightProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightProvider.swift; sourceTree = "<group>"; };
 		1AB530A31BF5CCA8003B8750 /* DesigoCCLightProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesigoCCLightProvider.swift; sourceTree = "<group>"; };
+		1ACCE4CC1C12E31500FF70F1 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		4D6C96329D102F334BF3CC91 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		7DBDA2EC95CAE1D63DF4B247 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6BEC83956911A0E4571ED73 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 			children = (
 				1A5A8C051BDD0026000850A3 /* Localizable.strings */,
 				1A56E4D61BBEA64900D1C90B /* Info.plist */,
+				1ACCE4CC1C12E31500FF70F1 /* Settings.bundle */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -370,6 +373,7 @@
 			files = (
 				1A5A8C071BDD0026000850A3 /* Localizable.strings in Resources */,
 				1A56E4D51BBEA64900D1C90B /* LaunchScreen.storyboard in Resources */,
+				1ACCE4CD1C12E31500FF70F1 /* Settings.bundle in Resources */,
 				1A56E4D21BBEA64900D1C90B /* Assets.xcassets in Resources */,
 				1A56E4D01BBEA64800D1C90B /* Main.storyboard in Resources */,
 			);

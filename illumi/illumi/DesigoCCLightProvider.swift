@@ -12,7 +12,22 @@ import Alamofire
 final class DesigoCCLightProvider{
     var delegate: LightProviderDelegate?
     
-    private let baseURL = "http://172.20.10.9/wsi/api"
+    private var iPAddress: String{
+        get{
+            if let userDefinedIPAddress = NSUserDefaults.standardUserDefaults().stringForKey("webServiceIPAddress") where
+                !userDefinedIPAddress.isEmpty{
+                return userDefinedIPAddress
+            }else{
+                return "172.20.10.9"
+            }
+        }
+    }
+    
+    private var baseURL: String{
+        get{
+            return "http://\(iPAddress)/wsi/api"
+        }
+    }
     private var accessToken: String?
     
     private enum LightState: Int{

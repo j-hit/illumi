@@ -25,7 +25,7 @@ class CheckpointsViewController: UITableViewController {
     
     let barTintColor = UIColor.grayColor()
     
-    lazy var checkpointManager: CheckpointManager = CheckpointManagerImpl()
+    var checkpointManager: CheckpointManager = CheckpointManagerImpl()
     
     var beaconManager: BeaconManager?{
         didSet{

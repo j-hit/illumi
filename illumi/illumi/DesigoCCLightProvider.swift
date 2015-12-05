@@ -10,7 +10,24 @@ import Foundation
 import Alamofire
 
 final class DesigoCCLightProvider{
-    private let baseURL = "http://172.20.10.9/wsi/api"
+    var delegate: LightProviderDelegate?
+    
+    private var iPAddress: String{
+        get{
+            if let userDefinedIPAddress = NSUserDefaults.standardUserDefaults().stringForKey("webServiceIPAddress") where
+                !userDefinedIPAddress.isEmpty{
+                return userDefinedIPAddress
+            }else{
+                return "172.20.10.9"
+            }
+        }
+    }
+    
+    private var baseURL: String{
+        get{
+            return "http://\(iPAddress)/wsi/api"
+        }
+    }
     private var accessToken: String?
     
     private enum LightState: Int{
@@ -75,6 +92,11 @@ final class DesigoCCLightProvider{
                 switch response.result {
                 case .Success:
                     print("successfully changed the present value")
+                    if(state == .On){
+                        self.delegate?.didTurnOnLight(withIdentifier: identifier)
+                    } else{
+                        self.delegate?.didTurnOffLight(withIdentifier: identifier)
+                    }
                 case .Failure(let error):
                     print(error)
                     if response.response?.statusCode == 401{

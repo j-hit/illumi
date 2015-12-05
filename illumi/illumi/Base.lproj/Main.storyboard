@@ -312,6 +312,9 @@
                                 <state key="normal" title="Done">
                                     <color key="titleColor" red="0.91764705879999997" green="0.7725490196" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <state key="disabled">
+                                    <color key="titleColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
+                                </state>
                                 <connections>
                                     <action selector="doneButtonPressed:" destination="rHD-eO-G2Z" eventType="touchUpInside" id="v8l-yc-j5T"/>
                                 </connections>

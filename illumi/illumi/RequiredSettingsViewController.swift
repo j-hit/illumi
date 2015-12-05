@@ -97,6 +97,8 @@ class RequiredSettingsViewController: UIViewController {
     // MARK: Done button
     
     @IBAction func doneButtonPressed(sender: UIButton) {
+        resourceManager.delegate = nil
+        resourceManager.setLocationManagerDelegate(nil)
         dismissViewControllerAnimated(true, completion: nil)
     }
 }
@@ -114,5 +116,9 @@ extension RequiredSettingsViewController: ResourceManagerDelegate{
     
     func didRegisterUserNotificationSettings(notificationSettings: UIUserNotificationSettings) {
         setNotificationInfoAccordingToUserNotificationSettings(notificationSettings)
+    }
+    
+    func applicationWillEnterForeground() {
+        setupView()
     }
 }

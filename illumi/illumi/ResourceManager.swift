@@ -13,6 +13,7 @@ import UIKit
 
 protocol ResourceManagerDelegate{
     func didRegisterUserNotificationSettings(notificationSettings: UIUserNotificationSettings)
+    func applicationWillEnterForeground()
 }
 
 final class ResourceManager{
@@ -73,5 +74,10 @@ final class ResourceManager{
     
     func didRegisterUserNotificationSettings(notificationSettings: UIUserNotificationSettings){
         delegate?.didRegisterUserNotificationSettings(notificationSettings)
+    }
+    
+    // MARK: Application states
+    func applicationWillEnterForeground(){
+        delegate?.applicationWillEnterForeground()
     }
 }

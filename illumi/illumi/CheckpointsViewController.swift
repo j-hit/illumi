@@ -128,6 +128,12 @@ class CheckpointsViewController: UITableViewController {
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
     }
+    
+    @IBAction func viewDidDetectRotationGesture(sender: UIRotationGestureRecognizer) {
+        if sender.state == UIGestureRecognizerState.Ended{
+            checkpointManager.resetRelatedInformation()
+        }
+    }
 }
 
 extension CheckpointsViewController: CheckpointManagerDelegate{

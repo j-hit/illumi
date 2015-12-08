@@ -147,4 +147,8 @@ extension DesigoCCLightProvider: LightProvider{
             requestLight(withIdentifier: identifier, toBeSwitchedToState: .On)
         }
     }
+    
+    func identifiersOfAllLights() -> Set<Int32> {
+        return Set<Int32>(WebServiceLightIdentifiers.keys)
+    }
 }

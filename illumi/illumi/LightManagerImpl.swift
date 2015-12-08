@@ -37,6 +37,8 @@ final class LightManagerImpl: LightManager{
         switch(identifier){
         case 1:
             lightsToBeOn = [1, 2, 3]
+        case 9:
+            lightsToBeOn = []
         default:
             lightsToBeOn = [identifier-1, identifier, identifier+1, identifier+2]
         }
@@ -49,6 +51,10 @@ final class LightManagerImpl: LightManager{
     
     private func calculateLightsToBeTurnedOff(lightsToBeOn: Set<Int32>) -> Set<Int32>{
         return lightsTurnedOn.subtract(lightsToBeOn)
+    }
+    
+    func haveAllLightsOff() {
+        lightProvider.turnOffLights(withIdentifiers: lightProvider.identifiersOfAllLights())
     }
 }
 

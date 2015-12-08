@@ -51,6 +51,10 @@ final class CheckpointManagerImpl: CheckpointManager{
         }
         authenticationManager.requestUserAuthentication(forCheckpoint: checkpoint)
     }
+    
+    func resetRelatedInformation() {
+        lightManager.haveAllLightsOff()
+    }
 }
 
 extension CheckpointManagerImpl: BeaconManagerDelegate{

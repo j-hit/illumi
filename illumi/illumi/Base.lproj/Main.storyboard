@@ -58,6 +58,7 @@
                         <connections>
                             <outlet property="dataSource" destination="gyu-Uc-QGP" id="SRo-Uh-ewB"/>
                             <outlet property="delegate" destination="gyu-Uc-QGP" id="s6m-oT-zNn"/>
+                            <outletCollection property="gestureRecognizers" destination="os6-ak-HJF" appends="YES" id="eT4-ZS-eXE"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="EWd-H7-IxI">
@@ -80,6 +81,11 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d4q-GJ-d85" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <rotationGestureRecognizer id="os6-ak-HJF">
+                    <connections>
+                        <action selector="viewDidDetectRotationGesture:" destination="gyu-Uc-QGP" id="yyh-At-SYj"/>
+                    </connections>
+                </rotationGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1576" y="-552"/>
         </scene>

@@ -17,4 +17,5 @@ protocol LightProvider{
     var delegate: LightProviderDelegate? { get set }
     func turnOnLights(withIdentifiers identifiers: Set<Int32>)
     func turnOffLights(withIdentifiers identifiers: Set<Int32>)
+    func identifiersOfAllLights() -> Set<Int32>
 }

@@ -16,4 +16,5 @@ protocol CheckpointManagerDelegate{
 protocol CheckpointManager: BeaconManagerDelegate{
     var delegate: CheckpointManagerDelegate? { get set }
     var checkpoints: [Checkpoint] { get }
+    func resetRelatedInformation()
 }

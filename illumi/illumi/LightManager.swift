@@ -10,4 +10,5 @@ import Foundation
 
 protocol LightManager{
     func haveLightsOnInRangeOfLight(withBeaconIdentity identity: BeaconIdentity)
+    func haveAllLightsOff()
 }

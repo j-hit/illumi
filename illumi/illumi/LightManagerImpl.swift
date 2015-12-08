@@ -52,6 +52,10 @@ final class LightManagerImpl: LightManager{
     private func calculateLightsToBeTurnedOff(lightsToBeOn: Set<Int32>) -> Set<Int32>{
         return lightsTurnedOn.subtract(lightsToBeOn)
     }
+    
+    func haveAllLightsOff() {
+        lightProvider.turnOffLights(withIdentifiers: lightProvider.identifiersOfAllLights())
+    }
 }
 
 extension LightManagerImpl: LightProviderDelegate{

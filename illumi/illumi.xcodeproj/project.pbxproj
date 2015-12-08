@@ -19,7 +19,7 @@
 		1A55BE371BEA39BF009D642D /* BeaconIdentityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A55BE361BEA39BF009D642D /* BeaconIdentityTests.swift */; };
 		1A56E4C91BBEA64800D1C90B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A56E4C81BBEA64800D1C90B /* AppDelegate.swift */; };
 		1A56E4CB1BBEA64800D1C90B /* CheckpointsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A56E4CA1BBEA64800D1C90B /* CheckpointsViewController.swift */; };
-		1A56E4CD1BBEA64800D1C90B /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A56E4CC1BBEA64800D1C90B /* SecondViewController.swift */; };
+		1A56E4CD1BBEA64800D1C90B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A56E4CC1BBEA64800D1C90B /* SettingsViewController.swift */; };
 		1A56E4D01BBEA64800D1C90B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A56E4CE1BBEA64800D1C90B /* Main.storyboard */; };
 		1A56E4D21BBEA64900D1C90B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A56E4D11BBEA64900D1C90B /* Assets.xcassets */; };
 		1A56E4D51BBEA64900D1C90B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A56E4D31BBEA64900D1C90B /* LaunchScreen.storyboard */; };
@@ -75,7 +75,7 @@
 		1A56E4C51BBEA64800D1C90B /* illumi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = illumi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A56E4C81BBEA64800D1C90B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1A56E4CA1BBEA64800D1C90B /* CheckpointsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckpointsViewController.swift; sourceTree = "<group>"; };
-		1A56E4CC1BBEA64800D1C90B /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		1A56E4CC1BBEA64800D1C90B /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		1A56E4CF1BBEA64800D1C90B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1A56E4D11BBEA64900D1C90B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1A56E4D41BBEA64900D1C90B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -211,7 +211,7 @@
 				1A56F7721BDBF0CB005B1AD7 /* RequiredSettingsViewController.swift */,
 				1A56E4CA1BBEA64800D1C90B /* CheckpointsViewController.swift */,
 				1AA1095D1BECF0DF00211F35 /* CheckpointTableViewCell.swift */,
-				1A56E4CC1BBEA64800D1C90B /* SecondViewController.swift */,
+				1A56E4CC1BBEA64800D1C90B /* SettingsViewController.swift */,
 				1A6D049B1BF32D4F00F45EEB /* CheckpointsFilter.swift */,
 				1A6D049D1BF32E5900F45EEB /* AllCheckpointsFilter.swift */,
 				1A6D049F1BF3331700F45EEB /* OpenCheckpointsFilter.swift */,
@@ -458,7 +458,7 @@
 				1A56F7751BDBF298005B1AD7 /* ResourceManager.swift in Sources */,
 				1A6D049E1BF32E5900F45EEB /* AllCheckpointsFilter.swift in Sources */,
 				1A56F7731BDBF0CB005B1AD7 /* RequiredSettingsViewController.swift in Sources */,
-				1A56E4CD1BBEA64800D1C90B /* SecondViewController.swift in Sources */,
+				1A56E4CD1BBEA64800D1C90B /* SettingsViewController.swift in Sources */,
 				1A641D431BEE6AEE00B48ADF /* AuthenticationManagerImpl.swift in Sources */,
 				1A6D049C1BF32D4F00F45EEB /* CheckpointsFilter.swift in Sources */,
 				1A56E4C91BBEA64800D1C90B /* AppDelegate.swift in Sources */,

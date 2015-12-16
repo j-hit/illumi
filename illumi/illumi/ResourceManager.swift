@@ -77,6 +77,7 @@ final class ResourceManager{
     }
     
     // MARK: Application states
+    
     func applicationWillEnterForeground(){
         delegate?.applicationWillEnterForeground()
     }

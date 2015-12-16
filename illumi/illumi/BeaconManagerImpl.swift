@@ -122,7 +122,6 @@ extension BeaconManagerImpl: CLLocationManagerDelegate{
             let notification = UILocalNotification()
             notification.alertBody = NSLocalizedString("EntranceEnteredNotification", comment: "Notification: entrance region entered")
             UIApplication.sharedApplication().presentLocalNotificationNow(notification)
-            print("didEnterRegion")
         }
     }
     
@@ -131,7 +130,6 @@ extension BeaconManagerImpl: CLLocationManagerDelegate{
             let notification = UILocalNotification()
             notification.alertBody = NSLocalizedString("ExitLeftNotification", comment: "Notification: exit region left")
             UIApplication.sharedApplication().presentLocalNotificationNow(notification)
-            print("didEnterRegion")
         }
     }
     
@@ -141,7 +139,7 @@ extension BeaconManagerImpl: CLLocationManagerDelegate{
     
     func locationManager(manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], inRegion region: CLBeaconRegion) {
         if let nearestBeaconFound = findNearestBeacon(beacons){
-            nearestBeacon = nearestBeaconFound
+            nearestBeacon = nearestBeaconFound // TODO: Get the nearest beacon from the sortedBeacons variable instead
         }
         if let sortedBeacons = self.sortBeaconsAccordingToProximityAndAccuracy(beacons){
             self.nearestBeacons = sliceOffFirstThreeBeacons(fromBeaconArray: sortedBeacons)
@@ -155,11 +153,5 @@ extension BeaconManagerImpl: CLLocationManagerDelegate{
         }else{
             return beacons
         }
-    }
-}
-
-extension CLBeacon{
-    func asString() -> String{
-        return "Major: \(major) Minor: \(minor)\nProximity: \(proximity.rawValue)\nRSSI: \(rssi)\nAccuracy: \(accuracy)"
     }
 }

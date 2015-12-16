@@ -91,16 +91,17 @@ final class DesigoCCLightProvider{
             .responseString { response in
                 switch response.result {
                 case .Success:
-                    print("successfully changed the present value")
                     if(state == .On){
                         self.delegate?.didTurnOnLight(withIdentifier: identifier)
+                        NSLog(String(format: "Successfully turned light with identifier %d to on", identifier))
                     } else{
                         self.delegate?.didTurnOffLight(withIdentifier: identifier)
+                        NSLog(String(format: "Successfully turned light with identifier %d to off", identifier))
                     }
                 case .Failure(let error):
                     print(error)
                     if response.response?.statusCode == 401{
-                        print("\nUnauthorized")
+                        NSLog("\nFailure due to an Unauthorized error")
                         self.requestAccessToken()
                     }
                 }

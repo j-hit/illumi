@@ -65,18 +65,10 @@ extension CheckpointManagerImpl: BeaconManagerDelegate{
             return
         }
         
-        switch(beacon.proximity)
-        {
-        case CLProximity.Immediate:
-            print(String(format: "Immediate\nRSSI: %d\nAccuracy: %.4fm", beacon.rssi, beacon.accuracy))
+        if(beacon.proximity == CLProximity.Immediate){
             requestClearingOfCheckpoint(withBeaconIdentity: beacon.beaconIdentity())
-        case CLProximity.Near:
-            print(String(format: "Near\nRSSI: %d\nAccuracy: %.4fm", beacon.rssi, beacon.accuracy))
-        case CLProximity.Far:
-            print(String(format: "Far\nRSSI: %d\nAccuracy: %.4fm", beacon.rssi, beacon.accuracy))
-        default:
-            print("Unknown " + String(beacon.rssi))
         }
+        NSLog(String(format: "Nearest beacon\nProximity Zone: %d\nRSSI: %d\nAccuracy: %.4fm", beacon.proximity.rawValue, beacon.rssi, beacon.accuracy))
     }
     
     func beaconManager(didRangeBeacons beacons: [CLBeacon]) {

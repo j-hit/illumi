@@ -58,6 +58,8 @@ final class LightManagerImpl: LightManager{
     }
 }
 
+
+// MARK: - LightProviderDelegate
 extension LightManagerImpl: LightProviderDelegate{
     func didTurnOffLight(withIdentifier identifier: Int32) {
         lightsTurnedOn.remove(identifier)

@@ -136,6 +136,7 @@ class CheckpointsViewController: UITableViewController {
     }
 }
 
+// MARK: - CheckpointManagerDelegate
 extension CheckpointsViewController: CheckpointManagerDelegate{
     func checkpointManager(didClearCheckpoint checkpoint: Checkpoint) {
         dispatch_async(dispatch_get_main_queue()) {

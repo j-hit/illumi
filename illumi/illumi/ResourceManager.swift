@@ -42,7 +42,7 @@ final class ResourceManager{
         print("Bluetooth Peripherial Manager" + " \(bluetoothPeripheralManager.state.rawValue)")
     }
     
-    // MARK: Access to location
+    // MARK: - Access to location
     
     func locationAuthorizationIsRequired()->Bool{
         if(CLLocationManager.authorizationStatus() == CLAuthorizationStatus.AuthorizedAlways){
@@ -70,13 +70,13 @@ final class ResourceManager{
     }
     
     
-    // MARK: Notifications
+    // MARK: - Notifications
     
     func didRegisterUserNotificationSettings(notificationSettings: UIUserNotificationSettings){
         delegate?.didRegisterUserNotificationSettings(notificationSettings)
     }
     
-    // MARK: Application states
+    // MARK: - Application states
     
     func applicationWillEnterForeground(){
         delegate?.applicationWillEnterForeground()

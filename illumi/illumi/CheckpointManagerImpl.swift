@@ -57,6 +57,7 @@ final class CheckpointManagerImpl: CheckpointManager{
     }
 }
 
+// MARK: - BeaconManagerDelegate
 extension CheckpointManagerImpl: BeaconManagerDelegate{
     func beaconManager(didCalculateNearestBeacon beacon: CLBeacon) {
         lightManager.haveLightsOnInRangeOfLight(withBeaconIdentity: beacon.beaconIdentity())
@@ -86,6 +87,7 @@ extension CheckpointManagerImpl: BeaconManagerDelegate{
     }
 }
 
+// MARK: - AuthenticationManagerDelegate
 extension CheckpointManagerImpl: AuthenticationManagerDelegate{
     func authenticationManager(authenticationEndedWithError errorMessage: String) {
         print(errorMessage)

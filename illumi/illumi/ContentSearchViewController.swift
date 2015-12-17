@@ -58,7 +58,7 @@ class ContentSearchViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
-    // MARK: Navigation
+    // MARK: - Navigation
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == ContentSearchViewController.segueIdentifierToShowMainContent{
@@ -73,9 +73,11 @@ class ContentSearchViewController: UIViewController {
 
 extension ContentSearchViewController: BeaconManagerDelegate{
     func beaconManager(didCalculateNearestBeacon beacon: CLBeacon) {
+        // Not required
     }
     
     func beaconManager(didRangeNearestBeacons beacons: [CLBeacon]) {
+        // Not required
     }
     
     func beaconManager(didRangeBeacons beacons: [CLBeacon]) {

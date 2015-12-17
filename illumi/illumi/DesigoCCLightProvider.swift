@@ -13,20 +13,16 @@ final class DesigoCCLightProvider{
     var delegate: LightProviderDelegate?
     
     private var iPAddress: String{
-        get{
-            if let userDefinedIPAddress = NSUserDefaults.standardUserDefaults().stringForKey("webServiceIPAddress") where
-                !userDefinedIPAddress.isEmpty{
+        if let userDefinedIPAddress = NSUserDefaults.standardUserDefaults().stringForKey("webServiceIPAddress") where
+            !userDefinedIPAddress.isEmpty{
                 return userDefinedIPAddress
-            }else{
-                return "172.20.10.9"
-            }
+        }else{
+            return "172.20.10.9"
         }
     }
     
     private var baseURL: String{
-        get{
-            return "http://\(iPAddress)/wsi/api"
-        }
+        return "http://\(iPAddress)/wsi/api"
     }
     private var accessToken: String?
     
@@ -83,7 +79,7 @@ final class DesigoCCLightProvider{
     private func requestLight(withIdentifier identifier: Int32, toBeSwitchedToState state: LightState){
         guard let url = URLForChangingPresentValueOfLight(withIdentifier: identifier),
             urlRequest = URLRequestForChangingPresentValue(withURLString: url, toValue: state.rawValue) else{
-            return
+                return
         }
         
         Alamofire.request(urlRequest)

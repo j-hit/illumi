@@ -40,6 +40,8 @@ class ResourceManagerTests: XCTestCase {
         class ResourceManagerDelegateMock: ResourceManagerDelegate{
             private func didRegisterUserNotificationSettings(notificationSettings: UIUserNotificationSettings) {
             }
+            private func applicationWillEnterForeground(){
+            }
         }
         let resourceManagerDelegate = ResourceManagerDelegateMock()
         resourceManager!.delegate = resourceManagerDelegate

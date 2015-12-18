@@ -29,6 +29,7 @@ struct BeaconIdentity: Equatable {
     }
 }
 
+// MARK: - CLBeacon
 extension CLBeacon{
     func beaconIdentity() -> BeaconIdentity{
         return BeaconIdentity(UUID: proximityUUID, major: major.intValue, minor: minor.intValue)

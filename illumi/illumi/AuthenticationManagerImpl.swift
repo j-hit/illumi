@@ -23,7 +23,7 @@ final class AuthenticationManagerImpl: AuthenticationManager{
         if touchIDIsAvailable(touchIDAvailablitityError){
             state = AuthenticationManagerState.RequestingAuthentication
             
-            [context.evaluatePolicy(LAPolicy.DeviceOwnerAuthenticationWithBiometrics, localizedReason: reasonString, reply: { (success: Bool, evaluatePolicyError: NSError?) -> Void in
+            context.evaluatePolicy(LAPolicy.DeviceOwnerAuthenticationWithBiometrics, localizedReason: reasonString, reply: { (success: Bool, evaluatePolicyError: NSError?) -> Void in
                 if success{
                     self.delegate?.authenticationWasSuccessful(forCheckpoint: checkpoint)
                 }
@@ -35,7 +35,7 @@ final class AuthenticationManagerImpl: AuthenticationManager{
                     }
                 }
                 self.state = AuthenticationManagerState.Ready
-            })]
+            })
         }else{
             if let authenticationError = touchIDAvailablitityError{
                 let resultDescription = self.errorMessage(forLocalAuthenticationError: authenticationError)
